@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,18 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aguatudo</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: "Segoe UI", sans-serif;
-      background-image: url('PAGE_AGUATUDO.jpg'); /* use o nome correto do seu arquivo */
+      background-image: url('PAGE_AGUATUDO.jpg');
       background-size: cover;
       background-position: center;
       color: white;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     nav {
-      background-color: rgba(0, 80, 60, 0.7);
-      padding: 10px 20px;
+      background-color: rgba(0, 80, 60, 0.75);
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -26,24 +30,17 @@
       text-decoration: none;
       margin-left: 20px;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
-    .container {
-      padding: 60px 20px;
-      background-color: rgba(0, 100, 80, 0.5); /* leve camada para contraste */
-      min-height: 90vh;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 22px;
-      max-width: 600px;
+    nav a:hover { color: #b0fbe0; }
+    main {
+      flex: 1;
+      padding: 80px 30px 40px;
+      background-color: rgba(0, 100, 80, 0.4);
     }
   </style>
 </head>
 <body>
-
   <nav>
     <div><strong>Aguatudo</strong></div>
     <div>
@@ -52,11 +49,22 @@
       <a href="contato.html">Contato</a>
     </div>
   </nav>
-
-  <div class="container">
-    <h1>Suas plantas sempre vivas</h1>
-    <p>Automatize a irrigação das suas plantas com um sistema bonito, inteligente e econômico.</p>
-  </div>
-
-</body>
-</html>
+  <main>
+<h1>Suas plantas sempre vivas</h1><p>Automatize a irrigação das suas plantas com um sistema bonito, inteligente e econômico.</p></main>
+  <footer style="
+    background-color: rgba(0, 80, 60, 0.85);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+  ">
+    <p>&copy; <span id="anoAtual"></span> Aguatudo. Todos os direitos reservados.</p>
+    <p>WhatsApp: <a href="https://wa.me/5519995309944" style="color: #b0fbe0; text-decoration: none;">(19) 99530-9944</a></p>
+  </footer>
+  <script>
+    document.getElementById("anoAtual").textContent = new Date().getFullYear();
+  </script>
+</body></html>
