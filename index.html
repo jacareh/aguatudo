@@ -1,55 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Aguatudo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aguatudo</title>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: linear-gradient(180deg, #2FEFB7, #2BDEA7, #00CF90);
-    color: white;
-    min-height: 100vh;
-  }
-  header {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-  }
-  nav a:hover {
-    text-decoration: underline;
-  }
-  main {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: auto;
-  }
-</style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-image: url('PAGE_AGUATUDO.jpg'); /* use o nome correto do seu arquivo */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+    nav {
+      background-color: rgba(0, 80, 60, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 60px 20px;
+      background-color: rgba(0, 100, 80, 0.5); /* leve camada para contraste */
+      min-height: 90vh;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 22px;
+      max-width: 600px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Aguatudo</h1>
-    <nav>
+
+  <nav>
+    <div><strong>Aguatudo</strong></div>
+    <div>
       <a href="index.html">Início</a>
       <a href="sobre.html">Sobre</a>
       <a href="contato.html">Contato</a>
-    </nav>
-  </header>
-  <main>
-    <img src="PAGE_AGUATUDO.jpg" alt="Aguatudo - suas plantas sempre vivas!" style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-  </main>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Suas plantas sempre vivas</h1>
+    <p>Automatize a irrigação das suas plantas com um sistema bonito, inteligente e econômico.</p>
+  </div>
+
 </body>
 </html>
