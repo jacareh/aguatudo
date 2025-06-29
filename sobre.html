@@ -2,76 +2,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre - Aguatudo</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-image: url('PAGE_AGUATUDO.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    nav {
-      background-color: rgba(0, 80, 60, 0.75);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: #b0fbe0; }
-    main {
-      flex: 1;
-      padding: 80px 30px 40px;
-      background-color: rgba(0, 100, 80, 0.4);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Aguatudo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <div><strong>Aguatudo</strong></div>
-    <div>
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-    </div>
-  </nav>
-  <main>
-<h2>Sobre o Aguatudo</h2>
-    <p>O <strong>Aguatudo</strong> é um sistema de irrigação inteligente criado para manter suas plantas sempre vivas. Ele conecta-se à internet para ajustar o tempo de irrigação conforme as condições do clima e umidade do ar.</p>Add commentMore actions
-    <p>A instpiração iniciou em família, num sítio do premiado orquidófilo <strong>Antonio Vendramin</strong> (1922 - 1994) em Jundiaí-SP, onde cultivou um orquidário com mais de 10 mil orquídeas contendo uma irrigação semi-automatizada, inovadora para a época de 1980, implantada por <strong>Antonio Vendramin Filho</strong>.</p>
-    <p>O Aguatudo foi aprimorado pelo Engenheiro <strong>Fabio Vendramin</strong>, unindo tecnologia e sustentabilidade para facilitar o cuidado com a natureza no seu dia a dia.</p>
-    <p>O Aguatudo foi aprimorado pelo Engenheiro de Computação <strong>Fabio S. Vendramin</strong>, unindo tecnologia e sustentabilidade para facilitar o cuidado com a natureza no seu dia a dia.</p>
-    <p>O diferencial do Aguatudo está em associar informações meteorológicas ao aplicativo para melhorar o consumo da água, além de trazer acessórios dóceis e fáceis de serem instalados pelas pessoas que amam suas plantinhas.</p>
-    
-  </main>
-  <footer style="
-    background-color: rgba(0, 80, 60, 0.85);
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-  ">
-    <p>&copy; <span id="anoAtual"></span> Aguatudo. Todos os direitos reservados.</p>
-    <p>WhatsApp: <a href="https://wa.me/5519995309944" style="color: #b0fbe0; text-decoration: none;">(19) 99530-9944</a></p>
-  </footer>
-  <script>
-    document.getElementById("anoAtual").textContent = new Date().getFullYear();
-  </script>
-</body></html>
+    <header>
+        <h1>Aguatudo</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="sobre-container">
+        <section class="sobre-texto">
+            <h2>Nossa História</h2>
+            <p>
+                O <strong>Aguatudo</strong> é um sistema de irrigação inteligente criado para manter suas plantas sempre vivas. Ele conecta-se à internet para ajustar o tempo de irrigação conforme as condições do clima e umidade do ar.
+            </p>
+            <p>
+                A inspiração começou em família, num sítio do premiado orquidófilo <strong>Antonio Vendramin</strong> (1922 - 1994), em Jundiaí-SP. Ali, foi cultivado um orquidário com mais de 10 mil orquídeas e uma irrigação semi-automatizada — inovadora para os anos 1980 — implantada por <strong>Antonio Vendramin Filho</strong>.
+            </p>
+            <p>
+                O projeto Aguatudo foi aprimorado pelo Engenheiro de Computação <strong>Fabio S. Vendramin</strong>, unindo tecnologia e sustentabilidade. Com sensibilidade e visão, ele incorporou dados meteorológicos ao sistema para otimizar o uso da água. O Aguatudo traz ainda acessórios amigáveis e fáceis de instalar, pensando em quem ama cuidar de suas plantinhas.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aguatudo. Todos os direitos reservados. | WhatsApp: (19) 99530-9944</p>
+    </footer>
+</body>
+</html>
