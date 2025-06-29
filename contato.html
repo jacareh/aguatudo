@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,112 +5,113 @@
   <title>Contato - Aguatudo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 40px;
-    }
-    h1 {
-      color: #1976d2;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #2FEFB7, #2BDEA7, #00CF90);
+    color: white;
+    min-height: 100vh;
+  }
+  header {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+
     form {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
       border-radius: 8px;
-      max-width: 500px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     label {
       display: block;
-      margin: 15px 0 5px;
+      margin-top: 15px;
     }
     input, textarea {
       width: 100%;
       padding: 10px;
-      font-size: 1rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      transition: border 0.3s;
-    }
-    input:invalid, textarea:invalid {
-      border-color: #e74c3c;
-    }
-    input:valid, textarea:valid {
-      border-color: #2ecc71;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #1976d2;
-      color: white;
+      margin-top: 5px;
       border: none;
       border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
     }
-    button:hover {
-      background-color: #0d47a1;
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #00CF90;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .success-message, .error-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
     }
     .success-message {
-      margin-top: 15px;
-      padding: 10px;
       background-color: #d4edda;
-      border: 1px solid #c3e6cb;
       color: #155724;
-      border-radius: 4px;
-      display: none;
-      animation: fadeIn 0.5s ease-in;
     }
     .error-message {
-      margin-top: 15px;
-      padding: 10px;
       background-color: #f8d7da;
-      border: 1px solid #f5c6cb;
       color: #721c24;
-      border-radius: 4px;
-      display: none;
-      animation: fadeIn 0.5s ease-in;
-    }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
-      color: #1976d2;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Aguatudo</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Entre em Contato</h2>
+    <form id="contato-form" novalidate>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required minlength="2">
 
-  <h1>Entre em Contato</h1>
-  <form id="contato-form" novalidate>
-    <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" required minlength="2" placeholder="Digite seu nome completo">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="_replyto" required>
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="_replyto" required placeholder="exemplo@email.com">
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
 
-    <label for="message">Mensagem:</label>
-    <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Escreva sua mensagem..."></textarea>
-
-    <button type="submit">Enviar</button>
-    <div class="success-message" id="mensagem-sucesso">Mensagem enviada com sucesso! Obrigado pelo contato.</div>
-    <div class="error-message" id="mensagem-erro">Erro ao enviar. Por favor, verifique os campos e tente novamente.</div>
-  </form>
-
-  <a href="index.html">← Voltar para a página inicial</a>
-
+      <button type="submit">Enviar</button>
+      <div class="success-message" id="mensagem-sucesso">Mensagem enviada com sucesso!</div>
+      <div class="error-message" id="mensagem-erro">Erro ao enviar. Verifique os campos.</div>
+    </form>
+  </main>
   <script>
     const form = document.getElementById('contato-form');
     const successMessage = document.getElementById('mensagem-sucesso');
     const errorMessage = document.getElementById('mensagem-erro');
 
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', async function(event) {
       event.preventDefault();
 
       if (!form.checkValidity()) {
@@ -137,6 +137,5 @@
       }
     });
   </script>
-
 </body>
 </html>
