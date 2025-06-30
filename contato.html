@@ -120,4 +120,35 @@
   <script>
     document.getElementById("anoAtual").textContent = new Date().getFullYear();
   </script>
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // evita o redirecionamento
+
+    const data = new FormData(form);
+    const action = "https://formspree.io/f/xgvydwdb";
+
+    fetch(action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        status.innerText = "Muito obrigado pelo contato! Retornaremos o mais rápido possível.";
+      } else {
+        status.innerText = "Houve um problema ao enviar o formulário. Tente novamente.";
+      }
+    }).catch(error => {
+      status.innerText = "Erro de conexão. Por favor, tente mais tarde.";
+    });
+  });
+</script>
+
+
+  
 </body></html>
