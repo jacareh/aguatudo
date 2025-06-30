@@ -97,3 +97,47 @@ footer {
   height: 100%;
   border: none;
 }
+.form-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffffcc;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 12px 24px;
+  background-color: #007e66;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #005f4d;
+}
+
+/* 🔸 Responsivo para telas grandes */
+@media (min-width: 768px) {
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+  }
+}
