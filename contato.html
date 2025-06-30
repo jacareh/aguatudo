@@ -51,9 +51,9 @@
   </nav>
   <main>
 
-<h2>Entre em Contato</h2>
 <div class="form-container">
-  <form action="https://formspree.io/f/xgvydwdb" method="POST">
+  <h2>Entre em Contato</h2>
+  <form id="contact-form">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" required>
 
@@ -61,11 +61,16 @@
     <input type="email" id="email" name="_replyto" required>
 
     <label for="message">Mensagem:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+    <textarea id="message" name="message" rows="5" required></textarea>
 
     <button type="submit">Enviar</button>
   </form>
+
+  <p id="form-status" style="margin-top: 20px; font-weight: bold; color: green;"></p>
 </div>
+
+
+    
 
 <script>
   const form = document.getElementById('contato-form');
