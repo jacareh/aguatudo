@@ -1,21 +1,23 @@
-
 document.getElementById('contact-form').addEventListener('submit', async function (event) {
   event.preventDefault();
+
   const form = event.target;
   const status = document.getElementById('form-status');
-  const data = new FormData(form);
-  const email = data.get('email');
-  const whatsapp = data.get('whatsapp');
 
-  // Verifica se pelo menos um dos dois campos está preenchido
+  const email = form.querySelector('input[name="email"]').value.trim();
+  const whatsapp = form.querySelector('input[name="whatsapp"]').value.trim();
+
+  // 🔒 Verifica se ambos estão vazios
   if (!email && !whatsapp) {
     status.textContent = "Por favor, preencha pelo menos o campo de e-mail ou WhatsApp.";
     status.style.color = "#ffc107";
     return;
   }
 
+  const data = new FormData(form);
+
   try {
-    const response = await fetch("https://formspree.io/f/xgvydwdb", {
+    const response = await fetch(form.action, {
       method: "POST",
       body: data,
       headers: { Accept: "application/json" }
