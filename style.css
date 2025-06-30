@@ -150,3 +150,39 @@ form button:hover {
     max-width: 600px;
   }
 }
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form button {
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #007B5E;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#form-status {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: green;
+}
