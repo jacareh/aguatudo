@@ -1,159 +1,127 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato - Aguatudo</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-image: url('LANDING_AGUATUDO.jpg');
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('LANDING_PAGE.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
       color: white;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      min-height: 100vh;
+    }
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      max-width: 500px;
+      margin: 80px auto;
+      border-radius: 10px;
+    }
+    form {
       display: flex;
       flex-direction: column;
     }
-    nav {
-      background-color: rgba(0, 80, 60, 0.75);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
+    label {
+      margin-top: 15px;
       font-weight: bold;
-      transition: color 0.3s ease;
     }
-    nav a:hover { color: #b0fbe0; }
-    main {
-      flex: 1;
-      padding: 80px 30px 40px;
-      background-color: rgba(0, 100, 80, 0.4);
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #form-status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div><strong>Aguatudo</strong></div>
-    <div>
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-    </div>
-  </nav>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main>
+    <div class="form-container">
+      <h2>Entre em Contato</h2>
+      <form id="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
 
-<div class="form-container">
-  <h2>Entre em Contato</h2>
-  <form id="contact-form">
-    <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" required>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="_replyto" required>
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="_replyto" required>
+        <label for="whatsapp">WhatsApp:</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(XX) XXXXX-XXXX">
 
-    <label for="message">Mensagem:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-    <button type="submit">Enviar</button>
-  </form>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="form-status"></p>
+    </div>
+  </main>
 
-  <p id="form-status"></p>
-</div>
-
-
-
-    
-
-<script>
-  const form = document.getElementById('contato-form');
-  const successMessage = document.getElementById('mensagem-sucesso');
-  const errorMessage = document.getElementById('mensagem-erro');
-
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      errorMessage.style.display = 'block';
-      successMessage.style.display = 'none';
-      return;
-    }
-
-    const formData = new FormData(form);
-    const response = await fetch("https://formspree.io/f/xgvydwdb", {
-      method: "POST",
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.reset();
-      successMessage.style.display = 'block';
-      errorMessage.style.display = 'none';
-    } else {
-      successMessage.style.display = 'none';
-      errorMessage.style.display = 'block';
-    }
-  });
-</script>
-</main>
-  <footer style="
-    background-color: rgba(0, 80, 60, 0.85);
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-  ">
-    <p>&copy; <span id="anoAtual"></span> Aguatudo. Todos os direitos reservados.</p>
-    <p>WhatsApp: <a href="https://wa.me/5519995309944" style="color: #b0fbe0; text-decoration: none;">(19) 99530-9944</a></p>
+  <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.7);">
+    © 2025 Aguatudo. Todos os direitos reservados. WhatsApp: (19) 99530-9944
   </footer>
-  <script>
-    document.getElementById("anoAtual").textContent = new Date().getFullYear();
-  </script>
 
   <script>
-  document.getElementById('contact-form').addEventListener('submit', async function (event) {
-    event.preventDefault();
-    const form = event.target;
-    const status = document.getElementById('form-status');
-    const data = new FormData(form);
+    document.getElementById('contact-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const form = event.target;
+      const status = document.getElementById('form-status');
+      const data = new FormData(form);
 
-    try {
-      const response = await fetch("https://formspree.io/f/xgvydwdb", {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json"
+      try {
+        const response = await fetch("https://formspree.io/f/xgvydwdb", {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.textContent = "Muito obrigado pelo contato! Retornaremos o mais rápido possível.";
+          status.style.color = "#28a745";
+        } else {
+          status.textContent = "Houve um problema ao enviar. Tente novamente.";
+          status.style.color = "#dc3545";
         }
-      });
-
-      if (response.ok) {
-        form.reset();
-        status.textContent = "Muito obrigado pelo contato! Retornaremos o mais rápido possível.";
-        status.style.color = "green";
-      } else {
-        status.textContent = "Houve um problema ao enviar. Tente novamente.";
-        status.style.color = "red";
+      } catch (error) {
+        status.textContent = "Erro de conexão. Verifique sua internet.";
+        status.style.color = "#dc3545";
       }
-    } catch (error) {
-      status.textContent = "Erro de conexão. Verifique sua internet.";
-      status.style.color = "red";
-    }
-  });
-</script>
-
-
-
-  
-</body></html>
+    });
+  </script>
+</body>
+</html>
