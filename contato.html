@@ -52,20 +52,21 @@
   <main>
 
 <h2>Entre em Contato</h2>
-<form id="contato-form" novalidate>
-  <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" required minlength="2" style="width:100%;padding:10px;margin-top:5px;border-radius:5px;border:none;">
+<div class="form-container">
+  <form action="https://formspree.io/f/xgvydwdb" method="POST">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
 
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" name="_replyto" required style="width:100%;padding:10px;margin-top:5px;border-radius:5px;border:none;">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="_replyto" required>
 
-  <label for="message">Mensagem:</label>
-  <textarea id="message" name="message" rows="5" required minlength="10" style="width:100%;padding:10px;margin-top:5px;border-radius:5px;border:none;"></textarea>
+    <label for="message">Mensagem:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
 
-  <button type="submit" style="margin-top:20px;padding:10px 20px;background-color:white;color:#00CF90;border:none;border-radius:4px;font-weight:bold;cursor:pointer;">Enviar</button>
-  <div class="success-message" id="mensagem-sucesso" style="margin-top:15px;padding:10px;border-radius:4px;display:none;background-color:#d4edda;color:#155724;">Mensagem enviada com sucesso!</div>
-  <div class="error-message" id="mensagem-erro" style="margin-top:15px;padding:10px;border-radius:4px;display:none;background-color:#f8d7da;color:#721c24;">Erro ao enviar. Verifique os campos.</div>
-</form>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
 <script>
   const form = document.getElementById('contato-form');
   const successMessage = document.getElementById('mensagem-sucesso');
