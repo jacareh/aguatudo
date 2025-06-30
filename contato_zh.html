@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato - Aguatudo</title>
+  <title>联系 - Aguatudo</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css">
   <style>
@@ -88,34 +88,34 @@
 <body>
   <header>
     <nav>
-      <ul><li><a href="index.html">Início</a></li><li><a href="nossa_historia.html">Nossa História</a></li><li><a href="contato.html">Contato</a></li></ul>
+      <ul><li><a href="index_zh.html">首页</a></li><li><a href="nossa_historia_zh.html">我们的故事</a></li><li><a href="contato_zh.html">联系</a></li></ul>
       <ul><li><a href="contato.html">🇧🇷</a></li><li><a href="contato_es.html">🇪🇸</a></li><li><a href="contato_en.html">🇺🇸</a></li><li><a href="contato_zh.html">🇨🇳</a></li></ul>
     </nav>
   </header>
 
   <main>
     <div class="form-container">
-      <h2>Entre em Contato</h2>
+      <h2>联系我们</h2>
       <form id="contact-form">
-        <label for="name">Nome:</label>
+        <label for="name">姓名：</label>
         <input type="text" id="name" name="name" >
 
-        <label for="email">E-mail:</label>
+        <label for="email">电子邮件：</label>
         <input type="email" id="email" name="_replyto" >
 
-        <label for="whatsapp">WhatsApp:</label>
+        <label for="whatsapp">WhatsApp：</label>
         <input type="tel" id="whatsapp" name="whatsapp" placeholder="(XX) XXXXX-XXXX">
 
-        <label for="message">Mensagem:</label>
+        <label for="message">留言：</label>
         <textarea id="message" name="message" rows="5" ></textarea>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">发送</button>
       </form>
       <p id="form-status"></p>
     </div>
   </main>
 
-  <footer>© 2025 Aguatudo. Todos os direitos reservados.</footer>
+  <footer>© 2025 Aguatudo。保留所有权利。</footer>
 
   <script>
     document.getElementById('contact-form').addEventListener('submit', async function (event) {
@@ -135,14 +135,14 @@
 
         if (response.ok) {
           form.reset();
-          status.textContent = "Muito obrigado pelo contato! Retornaremos o mais rápido possível.";
+          status.textContent = "感谢您的联系！我们会尽快回复您。";
           status.style.color = "#28a745";
         } else {
-          status.textContent = "Houve um problema ao enviar. Tente novamente.";
+          status.textContent = "提交时出现问题。请再试一次。";
           status.style.color = "#dc3545";
         }
       } catch (error) {
-        status.textContent = "Erro de conexão. Verifique sua internet.";
+        status.textContent = "连接错误。请检查您的网络。";
         status.style.color = "#dc3545";
       }
     });
