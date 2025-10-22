@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Aguatudo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index-en.html">Home</a></li>
+      <li><a href="history-en.html">Our Story</a></li>
+      <li><a href="contact-en.html">Contact</a></li>
+      <li class="spacer"></li>
+      <li><a class="social" href="https://instagram.com/aguatudo" target="_blank" rel="noopener">Instagram (preview)</a></li>
+      <li><a href="contato.html">PT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="form-container">
+    <h2>Get in Touch</h2>
+    <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" />
+
+      <label for="whatsapp">WhatsApp</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+55 19 99999-9999" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+    <p id="form-status"></p>
+  </div>
+</main>
+
+<footer>© 2025 Aguatudo. All rights reserved.</footer>
+<script src="form-handler.js" defer></script>
+</body>
+</html>
