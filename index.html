@@ -88,20 +88,13 @@
 <section class="content-box">
   <h2>Veja o Aguatudo em ação</h2>
 
-  <!-- Capa do vídeo (fica bonita e não abre outra página) -->
+  <!-- Capa local do vídeo -->
   <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
     <img
-      src="https://i.ytimg.com/vi/qKRvdf5fO7E/hqdefault.jpg"
-      srcset="
-        https://i.ytimg.com/vi/qKRvdf5fO7E/hqdefault.jpg 480w,
-        https://i.ytimg.com/vi/qKRvdf5fO7E/sddefault.jpg 640w,
-        https://i.ytimg.com/vi/qKRvdf5fO7E/maxresdefault.jpg 1280w
-      "
-      sizes="(max-width: 700px) 92vw, 520px"
+      src="./mini_do_shorts.png"
+      alt="Aguatudo em ação (vídeo)"
       loading="lazy"
       decoding="async"
-      alt="Aguatudo em ação (vídeo)"
-      onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/qKRvdf5fO7E/hqdefault.jpg';"
     />
     <span class="video-play" aria-hidden="true"></span>
   </button>
@@ -112,19 +105,16 @@
   <p class="cta-sub">Fale com a gente e garanta o seu Aguatudo</p>
 </section>
 
-<!-- Modal do vídeo (fica fora do content-box para centralizar na tela) -->
+<!-- Modal do vídeo -->
 <div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-modal__backdrop" id="closeVideo" aria-label="Fechar vídeo"></div>
+  <div class="video-modal__backdrop" id="closeVideo"></div>
 
-  <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do Aguatudo">
-    <button class="video-modal__close" type="button" id="closeVideoBtn" aria-label="Fechar">✕</button>
+  <div class="video-modal__panel" role="dialog" aria-modal="true">
+    <button class="video-modal__close" id="closeVideoBtn" aria-label="Fechar">✕</button>
 
-    <div class="video-modal__frame">
-      <!-- iframe entra aqui via JS -->
-    </div>
+    <div class="video-modal__frame"></div>
   </div>
 </div>
-
 
 
   <section class="content-box">
