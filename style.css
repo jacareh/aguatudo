@@ -175,3 +175,62 @@ a { color: inherit; }
   font-size: 0.98rem;
   opacity: .95;
 }
+
+/* ===== Vídeo: capa premium (substitui embed feio) ===== */
+.video-cover{
+  display: block;
+  width: min(100%, 520px);
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 22px rgba(0,0,0,.38);
+  text-decoration: none;
+}
+
+.video-cover img{
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.01);
+}
+
+.video-cover::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.15), rgba(0,0,0,.55));
+  pointer-events: none;
+}
+
+.video-play{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 74px;
+  height: 74px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+}
+
+.video-play::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-35%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 18px solid var(--brand-2);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.video-cover:hover .video-play{
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
