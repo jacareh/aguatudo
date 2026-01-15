@@ -32,9 +32,10 @@
 </header>
 
 <main>
+  <!-- HERO (tom emocional) -->
   <section class="hero content-box">
-    <h1>Suas plantas sempre vivas. Zero complicação.</h1>
-    <p class="lead">Aguatudo é o sistema de irrigação inteligente que cuida das suas plantas com precisão e praticidade — em casa, na varanda ou no jardim.</p>
+    <h1>Algumas plantas não são só plantas.</h1>
+    <p class="lead">Presentes, memórias, rituais, cheiros de casa. O Aguatudo nasceu para que esse cuidado continue — mesmo quando você não está por perto.</p>
 
     <!-- CTA principal (acima da dobra) -->
     <div class="cta-wrap">
@@ -43,8 +44,16 @@
     <p class="cta-sub">Pré-venda • orçamento • dúvidas rápidas</p>
   </section>
 
+  <!-- Manifesto curto -->
+  <section class="content-box manifesto">
+    <h2>Um cuidado a menos na cabeça</h2>
+    <p>Você sai de casa e o pensamento vem: <em>“Será que reguei?” “Será que foi demais?”</em></p>
+    <p>O Aguatudo existe para tirar essa preocupação do caminho — sem transformar sua rotina em um app, sem exigir internet, sem pedir atenção o tempo todo.</p>
+  </section>
+
+  <!-- Diferenciais -->
   <section class="content-box">
-    <h2>Por que o Aguatudo?</h2>
+    <h2>Por que ele funciona tão bem no dia a dia</h2>
     <div class="grid">
       <article class="card">
         <h3>1) Precisão de segundos</h3>
@@ -85,38 +94,29 @@
     </div>
   </section>
 
-<section class="content-box">
-  <h2>Veja o Aguatudo em ação</h2>
+  <!-- Vídeo -->
+  <section class="content-box">
+    <h2>Veja o Aguatudo em ação</h2>
 
-  <!-- Capa local do vídeo -->
-  <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
-    <img
-      src="./mini_do_shorts.png"
-      alt="Aguatudo em ação (vídeo)"
-      loading="lazy"
-      decoding="async"
-    />
-    <span class="video-play" aria-hidden="true"></span>
-  </button>
+    <!-- Capa local do vídeo -->
+    <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
+      <img
+        src="./mini_do_shorts.png"
+        alt="Aguatudo em ação (vídeo)"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="video-play" aria-hidden="true"></span>
+    </button>
 
-  <div class="cta-wrap cta-wrap-after-video">
-    <a class="cta-btn" href="contato.html" id="cta-compre-video">COMPRE AQUI</a>
-  </div>
-  <p class="cta-sub">Fale com a gente e garanta o seu Aguatudo</p>
-</section>
+    <!-- CTA após vídeo -->
+    <div class="cta-wrap cta-wrap-after-video">
+      <a class="cta-btn" href="contato.html" id="cta-compre-video">COMPRE AQUI</a>
+    </div>
+    <p class="cta-sub">Fale com a gente e garanta o seu Aguatudo</p>
+  </section>
 
-<!-- Modal do vídeo -->
-<div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-modal__backdrop" id="closeVideo"></div>
-
-  <div class="video-modal__panel" role="dialog" aria-modal="true">
-    <button class="video-modal__close" id="closeVideoBtn" aria-label="Fechar">✕</button>
-
-    <div class="video-modal__frame"></div>
-  </div>
-</div>
-
-
+  <!-- Como funciona -->
   <section class="content-box">
     <h2>Como funciona</h2>
     <p>Se as plantas ficam em local aberto (pega chuva) você pode adiar a programação em dias de chuva. Assim, o sistema economiza água.</p>
@@ -129,8 +129,18 @@
   © 2026 Aguatudo. Todos os direitos reservados.
 </footer>
 
-<!-- Tracking de cliques no CTA (GA4) -->
+<!-- Modal do vídeo -->
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="video-modal__backdrop" id="closeVideo"></div>
+
+  <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do Aguatudo">
+    <button class="video-modal__close" type="button" id="closeVideoBtn" aria-label="Fechar">✕</button>
+    <div class="video-modal__frame"></div>
+  </div>
+</div>
+
 <script>
+  // Tracking de cliques no CTA (GA4)
   function trackCta(id, label){
     const el = document.getElementById(id);
     if(!el) return;
@@ -142,52 +152,40 @@
   }
   trackCta('cta-compre-hero', 'hero');
   trackCta('cta-compre-video', 'pos_video');
-</script>
-<script>
+
+  // Modal do vídeo (permanece na mesma página)
   (function(){
     const openBtn = document.getElementById('openVideo');
     const modal = document.getElementById('videoModal');
-    const closeBackdrop = document.getElementById('closeVideo');
+    const closeBg = document.getElementById('closeVideo');
     const closeBtn = document.getElementById('closeVideoBtn');
-    const frame = modal ? modal.querySelector('.video-modal__frame') : null;
+    const frame = modal.querySelector('.video-modal__frame');
 
     const VIDEO_ID = 'qKRvdf5fO7E';
     const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
 
     function openModal(){
-      if(!modal || !frame) return;
       modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
+      modal.setAttribute('aria-hidden','false');
+      frame.innerHTML = `<iframe src="${EMBED}" title="Aguatudo Shorts" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 
-      // insere iframe só quando abre (melhor performance)
-      frame.innerHTML = `
-        <iframe
-          src="${EMBED}"
-          title="Aguatudo Shorts"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      `;
-
-      // analytics opcional
       if(typeof gtag === 'function'){
-        gtag('event', 'play_video', { event_category: 'engajamento', event_label: 'modal_home' });
+        gtag('event','play_video',{event_category:'engajamento',event_label:'modal_home'});
       }
     }
 
     function closeModal(){
-      if(!modal || !frame) return;
       modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      frame.innerHTML = ''; // para o vídeo ao fechar
+      modal.setAttribute('aria-hidden','true');
+      frame.innerHTML = '';
     }
 
-    if(openBtn) openBtn.addEventListener('click', openModal);
-    if(closeBackdrop) closeBackdrop.addEventListener('click', closeModal);
-    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+    openBtn.addEventListener('click', openModal);
+    closeBg.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
 
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal();
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
   })();
 </script>
