@@ -233,4 +233,123 @@ a { color: inherit; }
 .video-cover:hover .video-play{
   transform: translate(-50%, -50%) scale(1.03);
 }
+/* ===== Vídeo: capa premium + modal (não sai da página) ===== */
+.video-cover{
+  width: min(100%, 520px);
+  margin: 10px auto 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,.38);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.video-cover img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.05), rgba(0,0,0,.55));
+  pointer-events:none;
+}
+
+.video-play{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 78px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+}
+
+.video-play::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-35%, -50%);
+  width:0;
+  height:0;
+  border-left: 18px solid var(--brand-2);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.video-cover:hover .video-play{
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* Modal overlay */
+.video-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.video-modal.is-open{
+  display: block;
+}
+
+.video-modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(3px);
+}
+
+.video-modal__panel{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 420px);
+  border-radius: 16px;
+  background: rgba(10,10,10,.65);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 22px 55px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+
+.video-modal__close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 2;
+  border: 0;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.video-modal__frame{
+  width: 100%;
+  aspect-ratio: 9 / 16; /* shorts */
+  background: rgba(0,0,0,.4);
+}
+
+.video-modal__frame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
 
