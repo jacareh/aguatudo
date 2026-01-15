@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aguatudo — Smart irrigation</title>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-27Q59PLKST');
   </script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <header>
   <nav>
     <ul>
       <li><a href="index-en.html">Home</a></li>
-      <li><a href="nossa_historia.html">Our Story</a></li>
-      <li><a href="contact-en.html">Contact</a></li>
+      <li><a href="history-en.html">Our Story</a></li>
+      <li><a href="contato.html">Contact</a></li>
       <li><a href="manual.pdf">Manual</a></li>
       <li class="spacer"></li>
       <li><a class="social" href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
@@ -32,15 +33,16 @@
 </header>
 
 <main>
+
   <!-- HERO -->
   <section class="hero content-box">
     <h1>Some plants are more than just plants.</h1>
     <p class="lead">
-      Gifts, memories, rituals, the scent of home.
-      Aguatudo was created so this care can continue — even when you’re not around.
+      Gifts, memories, rituals, the feeling of home.
+      Aguatudo was created so this care can continue —
+      even when you’re not around.
     </p>
 
-    <!-- CTA -->
     <div class="cta-wrap">
       <a class="cta-btn" href="contato.html" id="cta-compre-hero">BUY HERE</a>
     </div>
@@ -55,8 +57,8 @@
       <em>“Did I water them?” “Was it too much?”</em>
     </p>
     <p>
-      Aguatudo exists to remove that worry —
-      without turning your routine into another app,
+      Aguatudo exists to remove this worry —
+      without turning your routine into an app,
       without requiring internet,
       without demanding constant attention.
     </p>
@@ -67,75 +69,15 @@
     <h2>Why it works so well in everyday life</h2>
 
     <div class="grid">
-      <article class="card">
-        <h3>1) Second-level precision</h3>
-        <p>
-          Irrigation timing accurate to the <strong>second</strong>.
-          Traditional systems work in 15-minute blocks; newer ones, in minutes.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>2) Friendly installation</h3>
-        <p>
-          Tool-free accessories: <strong>flexible micro-tubes</strong> with
-          <strong>individual flow adjustment</strong> for each pot.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>3) Works offline</h3>
-        <p>
-          The system <strong>does not depend on internet</strong> to operate.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>4) Built to last</h3>
-        <p>
-          Designed for durability — finished in
-          <strong>aluminum</strong> and <strong>glass</strong>.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>5) No batteries</h3>
-        <p>
-          Just <strong>water</strong> and <strong>power</strong>.
-          No batteries, no replacements.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>6) Intuitive LEDs</h3>
-        <p>
-          <strong>Multicolor LEDs</strong> instantly show system status.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>7) One single button</h3>
-        <p>
-          The entire experience resolved with
-          <strong>just one button</strong>.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>8) Pulse mode</h3>
-        <p>
-          Set a duration and every button press releases
-          <strong>the same amount of water</strong>.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>9) Multiple mounting options</h3>
-        <p>
-          Choose the <strong>ideal mount</strong>:
-          directly on a pot, on the wall, and more.
-        </p>
-      </article>
+      <article class="card"><h3>Second-level precision</h3><p>Accurate irrigation down to the <strong>second</strong>.</p></article>
+      <article class="card"><h3>Friendly installation</h3><p>No tools, with individual pot adjustment.</p></article>
+      <article class="card"><h3>Works offline</h3><p>No internet required.</p></article>
+      <article class="card"><h3>Built to last</h3><p>Durable <strong>aluminum</strong> and <strong>glass</strong> construction.</p></article>
+      <article class="card"><h3>No batteries</h3><p>Just water and power.</p></article>
+      <article class="card"><h3>Intuitive LEDs</h3><p>Clear and immediate system status.</p></article>
+      <article class="card"><h3>One button</h3><p>The entire experience simplified.</p></article>
+      <article class="card"><h3>Pulse mode</h3><p>Same amount of water every time.</p></article>
+      <article class="card"><h3>Multiple mounts</h3><p>Pot, wall, or stand.</p></article>
     </div>
   </section>
 
@@ -143,13 +85,9 @@
   <section class="content-box">
     <h2>See Aguatudo in action</h2>
 
+    <!-- THUMBNAIL -->
     <button class="video-cover" id="openVideo" type="button" aria-label="Watch Aguatudo video">
-      <img
-        src="./mini_do_shorts_en.png"
-        alt="Aguatudo in action (video)"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="./mini_do_shorts.png" alt="Aguatudo in action (video)" loading="lazy" decoding="async" />
       <span class="video-play" aria-hidden="true"></span>
     </button>
 
@@ -159,45 +97,30 @@
     <p class="cta-sub">Talk to us and secure your Aguatudo</p>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="content-box">
-    <h2>How it works</h2>
-    <p>
-      If your plants are in outdoor areas exposed to rain,
-      you can skip irrigation on rainy days — saving water.
-    </p>
-    <p>
-      During the adaptation period, you simply observe whether pots are dry or overwatered
-      and fine-tune each outlet using the flow-adjustment accessory —
-      achieving perfect balance.
-    </p>
-    <p>
-      Aguatudo also supports <strong>larger gardens and urban farms</strong>:
-      just connect it to higher-scale irrigation equipment.
-    </p>
-  </section>
 </main>
 
 <footer>
   © 2026 Aguatudo. All rights reserved.
 </footer>
 
+<!-- VIDEO MODAL (REQUIRED) -->
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="video-modal__backdrop" id="closeVideo"></div>
+
+  <div class="video-modal__panel" role="dialog" aria-modal="true">
+    <button class="video-modal__close" id="closeVideoBtn" aria-label="Close">✕</button>
+    <div class="video-modal__frame"></div>
+  </div>
+</div>
+
+<!-- MODAL SCRIPT (ROBUST) -->
 <script>
 (function () {
-  // IDs esperados (tem que existir nas páginas)
-  const openBtn = document.getElementById('openVideo');
-  const modal = document.getElementById('videoModal');
-  const closeBg = document.getElementById('closeVideo');
+  const openBtn  = document.getElementById('openVideo');
+  const modal    = document.getElementById('videoModal');
+  const closeBg  = document.getElementById('closeVideo');
   const closeBtn = document.getElementById('closeVideoBtn');
-  const frame = modal ? modal.querySelector('.video-modal__frame') : null;
-
-  // Se algo essencial não existir, não quebra a página — mas loga.
-  if (!openBtn || !modal || !closeBg || !closeBtn || !frame) {
-    console.warn('[Aguatudo] Video modal: elementos não encontrados', {
-      openBtn: !!openBtn, modal: !!modal, closeBg: !!closeBg, closeBtn: !!closeBtn, frame: !!frame
-    });
-    return;
-  }
+  const frame    = modal.querySelector('.video-modal__frame');
 
   const VIDEO_ID = 'qKRvdf5fO7E';
   const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
@@ -205,73 +128,28 @@
   function openModal() {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
+    frame.innerHTML = `<iframe src="${EMBED}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 
-    // injeta o iframe só na hora do clique
-    frame.innerHTML = `
-      <iframe
-        src="${EMBED}"
-        title="Aguatudo video"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    `;
-
-    // opcional: analytics
     if (typeof gtag === 'function') {
-      gtag('event', 'play_video', { event_category: 'engajamento', event_label: 'modal_open' });
+      gtag('event', 'play_video', { event_label: 'modal_home_en' });
     }
   }
 
   function closeModal() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
-    frame.innerHTML = ''; // para o vídeo ao fechar
+    frame.innerHTML = '';
   }
 
   openBtn.addEventListener('click', openModal);
   closeBg.addEventListener('click', closeModal);
   closeBtn.addEventListener('click', closeModal);
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
   });
 })();
 </script>
-<script>
-  function trackCta(id, label){
-    const el = document.getElementById(id);
-    if(!el) return;
-
-    el.addEventListener('click', function(e){
-      e.preventDefault(); // impede navegação imediata
-
-      const href = el.getAttribute('href');
-
-      if(typeof gtag === 'function'){
-        gtag('event', 'click_compre_aqui', {
-          event_category: 'conversao',
-          event_label: label,
-          transport_type: 'beacon',
-          event_callback: function(){
-            window.location.href = href;
-          }
-        });
-
-        // fallback caso o callback não dispare
-        setTimeout(function(){
-          window.location.href = href;
-        }, 300);
-
-      } else {
-        window.location.href = href;
-      }
-    });
-  }
-
-  trackCta('cta-compre-hero', 'hero');
-  trackCta('cta-compre-video', 'pos_video');
-</script>
-
 
 </body>
 </html>
