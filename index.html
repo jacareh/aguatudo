@@ -153,6 +153,54 @@
   trackCta('cta-compre-hero', 'hero');
   trackCta('cta-compre-video', 'pos_video');
 </script>
+<script>
+  (function(){
+    const openBtn = document.getElementById('openVideo');
+    const modal = document.getElementById('videoModal');
+    const closeBackdrop = document.getElementById('closeVideo');
+    const closeBtn = document.getElementById('closeVideoBtn');
+    const frame = modal ? modal.querySelector('.video-modal__frame') : null;
+
+    const VIDEO_ID = 'qKRvdf5fO7E';
+    const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+
+    function openModal(){
+      if(!modal || !frame) return;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+
+      // insere iframe só quando abre (melhor performance)
+      frame.innerHTML = `
+        <iframe
+          src="${EMBED}"
+          title="Aguatudo Shorts"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      `;
+
+      // analytics opcional
+      if(typeof gtag === 'function'){
+        gtag('event', 'play_video', { event_category: 'engajamento', event_label: 'modal_home' });
+      }
+    }
+
+    function closeModal(){
+      if(!modal || !frame) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      frame.innerHTML = ''; // para o vídeo ao fechar
+    }
+
+    if(openBtn) openBtn.addEventListener('click', openModal);
+    if(closeBackdrop) closeBackdrop.addEventListener('click', closeModal);
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal();
+    });
+  })();
+</script>
 
 </body>
 </html>
