@@ -146,6 +146,45 @@
     return;
   }
 
+  const VIDEO_ID = 'qKRvdf5fO7E';
+  const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // injeta o iframe só na hora do clique
+    frame.innerHTML = `
+      <iframe
+        src="${EMBED}"
+        title="Aguatudo video"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    `;
+
+    // opcional: analytics
+    if (typeof gtag === 'function') {
+      gtag('event', 'play_video', { event_category: 'engajamento', event_label: 'modal_open' });
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    frame.innerHTML = ''; // para o vídeo ao fechar
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBg.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>
+
 <script>
   function trackCta(id, label){
     const el = document.getElementById(id);
