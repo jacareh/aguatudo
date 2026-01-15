@@ -140,55 +140,40 @@
 </div>
 
 <script>
-  // Tracking de cliques no CTA (GA4)
   function trackCta(id, label){
     const el = document.getElementById(id);
     if(!el) return;
-    el.addEventListener('click', () => {
+
+    el.addEventListener('click', function(e){
+      e.preventDefault(); // impede navegação imediata
+
+      const href = el.getAttribute('href');
+
       if(typeof gtag === 'function'){
-        gtag('event', 'click_compre_aqui', { event_category: 'conversao', event_label: label });
+        gtag('event', 'click_compre_aqui', {
+          event_category: 'conversao',
+          event_label: label,
+          transport_type: 'beacon',
+          event_callback: function(){
+            window.location.href = href;
+          }
+        });
+
+        // fallback caso o callback não dispare
+        setTimeout(function(){
+          window.location.href = href;
+        }, 300);
+
+      } else {
+        window.location.href = href;
       }
     });
   }
+
   trackCta('cta-compre-hero', 'hero');
   trackCta('cta-compre-video', 'pos_video');
-
-  // Modal do vídeo (permanece na mesma página)
-  (function(){
-    const openBtn = document.getElementById('openVideo');
-    const modal = document.getElementById('videoModal');
-    const closeBg = document.getElementById('closeVideo');
-    const closeBtn = document.getElementById('closeVideoBtn');
-    const frame = modal.querySelector('.video-modal__frame');
-
-    const VIDEO_ID = 'qKRvdf5fO7E';
-    const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-
-    function openModal(){
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden','false');
-      frame.innerHTML = `<iframe src="${EMBED}" title="Aguatudo Shorts" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-
-      if(typeof gtag === 'function'){
-        gtag('event','play_video',{event_category:'engajamento',event_label:'modal_home'});
-      }
-    }
-
-    function closeModal(){
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden','true');
-      frame.innerHTML = '';
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBg.addEventListener('click', closeModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    document.addEventListener('keydown', e=>{
-      if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-    });
-  })();
 </script>
+
 
 </body>
 </html>
