@@ -62,38 +62,6 @@ main .container, .content-box, .form-container {
 .card h3 { margin: 0 0 8px; font-size: 18px; color: var(--muted); }
 .card p { margin: 0; line-height: 1.55; }
 
-/* Vídeo vertical (YouTube Shorts) */
-.video-vertical {
-  width: min(100%, 380px);   /* largura máxima do “celular” */
-  aspect-ratio: 9 / 16;      /* mantém a miniatura e o player na proporção correta */
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0,0,0,.35);
-}
-
-.video-vertical iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Fallback para navegadores antigos (sem suporte a aspect-ratio) */
-@supports not (aspect-ratio: 1) {
-  .video-vertical {
-    position: relative;
-    width: min(100%, 380px);
-    padding-top: 177.78%;   /* 9:16 */
-    height: 0;
-  }
-  .video-vertical iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
 /* Formulário */
 .form-container { max-width: 620px; }
 form { display: flex; flex-direction: column; gap: 12px; }
@@ -123,7 +91,7 @@ footer {
 }
 
 /* =========================
-   CTA "COMPRE AQUI" (novo)
+   CTA "COMPRE AQUI"
    ========================= */
 
 /* evita “link roxo” fora do menu */
@@ -134,7 +102,6 @@ a { color: inherit; }
   display: flex;
   justify-content: center;
 }
-
 .cta-wrap-after-video{
   margin-top: 18px;
 }
@@ -176,67 +143,34 @@ a { color: inherit; }
   opacity: .95;
 }
 
-/* ===== Vídeo: capa premium (substitui embed feio) ===== */
-.video-cover{
-  display: block;
-  width: min(100%, 520px);
-  margin: 0 auto;
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 10px 22px rgba(0,0,0,.38);
-  text-decoration: none;
-}
+/* =========================
+   Bloco emocional (manifesto)
+   ========================= */
 
-.video-cover img{
-  display: block;
-  width: 100%;
-  height: auto;
-  transform: scale(1.01);
+.manifesto{
+  text-align: center;
 }
-
-.video-cover::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.15), rgba(0,0,0,.55));
-  pointer-events: none;
+.manifesto h2{
+  margin-bottom: 10px;
 }
-
-.video-play{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 74px;
-  height: 74px;
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 10px 24px rgba(0,0,0,.45);
-}
-
-.video-play::before{
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-35%, -50%);
-  width: 0;
-  height: 0;
-  border-left: 18px solid var(--brand-2);
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-}
-
-.video-cover:hover .video-play{
-  transform: translate(-50%, -50%) scale(1.03);
-}
-/* ===== Vídeo: capa premium + modal (não sai da página) ===== */
-.video-cover{
-  width: min(100%, 520px);
+.manifesto p{
   margin: 10px auto 0;
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.manifesto em{
+  color: #fff;
+  font-style: italic;
+}
+
+/* =========================
+   Vídeo: capa local + modal
+   ========================= */
+
+.video-cover{
+  width: min(100%, 420px);
+  margin: 12px auto 0;
   display: block;
   padding: 0;
   border: 0;
@@ -253,13 +187,15 @@ a { color: inherit; }
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
 }
 
 .video-cover::after{
   content:"";
   position:absolute;
   inset:0;
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.05), rgba(0,0,0,.55));
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.08), rgba(0,0,0,.55));
   pointer-events:none;
 }
 
@@ -289,21 +225,14 @@ a { color: inherit; }
   border-bottom: 12px solid transparent;
 }
 
-.video-cover:hover .video-play{
-  transform: translate(-50%, -50%) scale(1.03);
-}
-
-/* Modal overlay */
+/* Modal */
 .video-modal{
   position: fixed;
   inset: 0;
   display: none;
   z-index: 9999;
 }
-
-.video-modal.is-open{
-  display: block;
-}
+.video-modal.is-open{ display: block; }
 
 .video-modal__backdrop{
   position: absolute;
@@ -342,8 +271,7 @@ a { color: inherit; }
 
 .video-modal__frame{
   width: 100%;
-  aspect-ratio: 9 / 16; /* shorts */
-  background: rgba(0,0,0,.4);
+  aspect-ratio: 9 / 16;
 }
 
 .video-modal__frame iframe{
@@ -352,4 +280,3 @@ a { color: inherit; }
   border: 0;
   display: block;
 }
-
