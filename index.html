@@ -129,15 +129,22 @@
   © 2026 Aguatudo. Todos os direitos reservados.
 </footer>
 
-<!-- Modal do vídeo -->
-<div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-modal__backdrop" id="closeVideo"></div>
+<script>
+(function () {
+  // IDs esperados (tem que existir nas páginas)
+  const openBtn = document.getElementById('openVideo');
+  const modal = document.getElementById('videoModal');
+  const closeBg = document.getElementById('closeVideo');
+  const closeBtn = document.getElementById('closeVideoBtn');
+  const frame = modal ? modal.querySelector('.video-modal__frame') : null;
 
-  <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do Aguatudo">
-    <button class="video-modal__close" type="button" id="closeVideoBtn" aria-label="Fechar">✕</button>
-    <div class="video-modal__frame"></div>
-  </div>
-</div>
+  // Se algo essencial não existir, não quebra a página — mas loga.
+  if (!openBtn || !modal || !closeBg || !closeBtn || !frame) {
+    console.warn('[Aguatudo] Video modal: elementos não encontrados', {
+      openBtn: !!openBtn, modal: !!modal, closeBg: !!closeBg, closeBtn: !!closeBtn, frame: !!frame
+    });
+    return;
+  }
 
 <script>
   function trackCta(id, label){
