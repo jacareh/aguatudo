@@ -1,137 +1,177 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aguatudo — Irrigação inteligente</title>
+/* Base */
+:root {
+  --bg-dark: rgba(0,0,0,.65);
+  --bg-darker: rgba(0,0,0,.75);
+  --brand: #0b8c74;
+  --brand-2: #00c2a8;
+  --text: #ffffff;
+  --muted: #cfeee7;
+}
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-27Q59PLKST');
-  </script>
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: url('LANDING_PAGE.jpg') center/cover fixed no-repeat;
+}
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="nossa_historia.html">Nossa História</a></li>
-      <li><a href="contato.html">Contato</a></li>
-      <li><a href="manual.pdf">Manual</a></li>
-      <li class="spacer"></li>
-      <li><a class="social" href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="index-en.html">EN</a></li>
-    </ul>
-  </nav>
-</header>
+/* Header / Nav */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg-dark);
+  backdrop-filter: blur(2px);
+}
+nav ul {
+  margin: 0; padding: 12px 16px;
+  list-style: none; display: flex; gap: 18px; align-items: center; justify-content: center;
+  flex-wrap: wrap;
+}
+nav a {
+  color: var(--text); text-decoration: none; font-weight: bold;
+}
+nav a:hover { text-decoration: underline; }
+nav .spacer { flex: 1; }
+nav .social { opacity: .9; }
 
-<main>
-  <section class="hero content-box">
-    <h1>Suas plantas sempre vivas. Zero complicação.</h1>
-    <p class="lead">Aguatudo é o sistema de irrigação inteligente que cuida das suas plantas com precisão e praticidade — em casa, na varanda ou no jardim.</p>
+/* Containers */
+main .container, .content-box, .form-container {
+  max-width: 980px; margin: 28px auto; padding: 24px;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+.content-box h2 { margin-top: 0; }
 
-    <!-- CTA principal (acima da dobra) -->
-    <div class="cta-wrap">
-      <a class="cta-btn" href="contato.html" id="cta-compre-hero">COMPRE AQUI</a>
-    </div>
-    <p class="cta-sub">Pré-venda • orçamento • dúvidas rápidas</p>
-  </section>
+/* Hero */
+.hero { text-align: center; padding: 40px 20px; }
+.hero h1 { margin: 0 0 10px; font-size: clamp(28px, 5vw, 40px); }
+.hero p.lead { margin: 6px 0 0; color: var(--muted); font-size: clamp(16px, 2.5vw, 18px); }
 
-  <section class="content-box">
-    <h2>Por que o Aguatudo?</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>1) Precisão de segundos</h3>
-        <p>Ajuste de irrigação na ordem de <strong>segundos</strong>. Concorrentes tradicionais trabalham em ~15 minutos; os mais modernos, em minutos.</p>
-      </article>
-      <article class="card">
-        <h3>2) Instalação amigável</h3>
-        <p>Acessórios sem ferramentas: <strong>mangueirinhas maleáveis</strong> com <strong>ajuste de vazão exclusivo</strong> para equilibrar vaso a vaso.</p>
-      </article>
-      <article class="card">
-        <h3>3) Funciona offline</h3>
-        <p>O equipamento <strong>não depende de internet</strong> para operar.</p>
-      </article>
-      <article class="card">
-        <h3>4) Feito para durar</h3>
-        <p>Alta durabilidade sob sol e chuva — acabamento em <strong>alumínio</strong> e <strong>vidro</strong>.</p>
-      </article>
-      <article class="card">
-        <h3>5) Sem pilhas</h3>
-        <p>Somente <strong>torneira</strong> e <strong>tomada</strong>. Sem gastos com pilhas ou baterias.</p>
-      </article>
-      <article class="card">
-        <h3>6) LEDs intuitivos</h3>
-        <p><strong>LEDs multicores</strong> indicam o estado do sistema de forma imediata.</p>
-      </article>
-      <article class="card">
-        <h3>7) Um único botão</h3>
-        <p>Toda a experiência resolvida com <strong>apenas 1 botão</strong>.</p>
-      </article>
-      <article class="card">
-        <h3>8) Modo Pulso</h3>
-        <p>Programe a duração e sempre que você <strong>apertar o botão</strong> sairá a mesma quantidade de água.</p>
-      </article>
-      <article class="card">
-        <h3>9) Vários tipos de fixação</h3>
-        <p>Escolha o <strong>suporte ideal</strong> para você posicionar seu Aguatudo: direto em um vaso, na parede, etc.</p>
-      </article>
-    </div>
-  </section>
+/* Differentials (cards) */
+.grid {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px; padding: 16px;
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; color: var(--muted); }
+.card p { margin: 0; line-height: 1.55; }
 
-  <section class="content-box">
-    <h2>Veja o Aguatudo em ação</h2>
+/* Vídeo vertical (YouTube Shorts) */
+.video-vertical {
+  width: min(100%, 380px);   /* largura máxima do “celular” */
+  aspect-ratio: 9 / 16;      /* mantém a miniatura e o player na proporção correta */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
 
-    <div class="video-vertical">
-      <iframe
-        src="https://www.youtube.com/embed/qKRvdf5fO7E?rel=0&modestbranding=1&playsinline=1"
-        title="Aguatudo Shorts"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
+.video-vertical iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
-    <!-- CTA secundário (logo após o vídeo) -->
-    <div class="cta-wrap cta-wrap-after-video">
-      <a class="cta-btn" href="contato.html" id="cta-compre-video">COMPRE AQUI</a>
-    </div>
-    <p class="cta-sub">Fale com a gente e garanta o seu Aguatudo</p>
-  </section>
-
-  <section class="content-box">
-    <h2>Como funciona</h2>
-    <p>Se as plantas ficam em local aberto (pega chuva) você pode adiar a programação em dias de chuva. Assim, o sistema economiza água.</p>
-    <p>No período de adaptação, você verifica se os vasos estão secos ou encharcados e faz pequenos ajustes com o acessório que regula a vazão de água — vaso a vaso — para equilíbrio perfeito.</p>
-    <p>O Aguatudo também atende <strong>hortas e jardins maiores</strong>: é só conectar aos equipamentos de maior escala.</p>
-  </section>
-</main>
-
-<footer>
-  © 2026 Aguatudo. Todos os direitos reservados.
-</footer>
-
-<!-- Tracking de cliques no CTA (GA4) -->
-<script>
-  function trackCta(id, label){
-    const el = document.getElementById(id);
-    if(!el) return;
-    el.addEventListener('click', () => {
-      if(typeof gtag === 'function'){
-        gtag('event', 'click_compre_aqui', { event_category: 'conversao', event_label: label });
-      }
-    });
+/* Fallback para navegadores antigos (sem suporte a aspect-ratio) */
+@supports not (aspect-ratio: 1) {
+  .video-vertical {
+    position: relative;
+    width: min(100%, 380px);
+    padding-top: 177.78%;   /* 9:16 */
+    height: 0;
   }
-  trackCta('cta-compre-hero', 'hero');
-  trackCta('cta-compre-video', 'pos_video');
-</script>
+  .video-vertical iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
 
-</body>
-</html>
+/* Formulário */
+.form-container { max-width: 620px; }
+form { display: flex; flex-direction: column; gap: 12px; }
+label { font-weight: bold; }
+input, textarea, button {
+  border-radius: 8px; border: 1px solid rgba(255,255,255,.18);
+  padding: 12px; font-size: 16px; color: #112;
+}
+input, textarea { background: rgba(255,255,255,.95); }
+button {
+  background: var(--brand); color: #fff; border: none; cursor: pointer; font-weight: bold;
+}
+button:hover { background: var(--brand-2); }
+#form-status { text-align: center; margin-top: 8px; font-weight: bold; }
+
+/* Footer */
+footer {
+  margin-top: 28px; text-align: center; padding: 20px;
+  background: var(--bg-darker); color: var(--text);
+}
+
+/* Imagem pequena da história */
+.figure-center { text-align: center; }
+.figure-center img {
+  max-width: 320px; width: 100%;
+  border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
+
+/* =========================
+   CTA "COMPRE AQUI" (novo)
+   ========================= */
+
+/* evita “link roxo” fora do menu */
+a { color: inherit; }
+
+.cta-wrap{
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-wrap-after-video{
+  margin-top: 18px;
+}
+
+.cta-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-decoration: none;
+
+  background: var(--brand-2);
+  color: #06241e;
+
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 12px 26px rgba(0,0,0,.35);
+  transition: transform .14s ease, filter .14s ease, box-shadow .14s ease;
+}
+
+.cta-btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 16px 34px rgba(0,0,0,.42);
+}
+
+.cta-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 12px 26px rgba(0,0,0,.35);
+}
+
+.cta-sub{
+  margin: 10px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.98rem;
+  opacity: .95;
+}
