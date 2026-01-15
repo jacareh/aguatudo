@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aguatudo — Irrigação inteligente</title>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-27Q59PLKST');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-27Q59PLKST');
+  </script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <header>
   <nav>
@@ -34,6 +36,12 @@
   <section class="hero content-box">
     <h1>Suas plantas sempre vivas. Zero complicação.</h1>
     <p class="lead">Aguatudo é o sistema de irrigação inteligente que cuida das suas plantas com precisão e praticidade — em casa, na varanda ou no jardim.</p>
+
+    <!-- CTA principal (melhor posição: acima da dobra) -->
+    <div class="cta-row">
+      <a class="cta" id="cta-compre-hero" href="contato.html">COMPRE AQUI</a>
+      <span class="cta-note">Pré-venda / orçamento / dúvidas</span>
+    </div>
   </section>
 
   <section class="content-box">
@@ -67,11 +75,11 @@
         <h3>7) Um único botão</h3>
         <p>Toda a experiência resolvida com <strong>apenas 1 botão</strong>.</p>
       </article>
-       <article class="card">
+      <article class="card">
         <h3>8) Modo Pulso</h3>
         <p>Programe a duração e sempre que você <strong>apertar o botão</strong> sairá a mesma quantidade de água.</p>
       </article>
-             <article class="card">
+      <article class="card">
         <h3>9) Vários tipos de fixação</h3>
         <p>Escolha o <strong>suporte ideal</strong> para você posicionar seu Aguatudo: direto em um vaso, na parede, etc.</p>
       </article>
@@ -79,28 +87,34 @@
   </section>
 
   <section class="content-box">
-  <h2>Veja o Aguatudo em ação</h2>
-  <div class="video-vertical">
-    <iframe 
-      src="https://www.youtube.com/embed/qKRvdf5fO7E?rel=0&modestbranding=1&playsinline=1"
-      title="Aguatudo Shorts"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
+    <h2>Veja o Aguatudo em ação</h2>
 
+    <!-- Thumbnail nítida + carrega o iframe só ao clicar -->
+    <div class="video-vertical" id="videoWrap">
+      <button class="video-thumb" id="videoThumb" type="button" aria-label="Assistir vídeo do Aguatudo">
+        <img
+          src="https://i.ytimg.com/vi/qKRvdf5fO7E/maxresdefault.jpg"
+          srcset="
+            https://i.ytimg.com/vi/qKRvdf5fO7E/hqdefault.jpg 480w,
+            https://i.ytimg.com/vi/qKRvdf5fO7E/maxresdefault.jpg 1280w
+          "
+          sizes="(max-width: 700px) 80vw, 420px"
+          alt="Aguatudo em ação (vídeo)"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="play-badge" aria-hidden="true">▶</span>
+      </button>
+    </div>
+
+    <!-- CTA secundário (logo após o vídeo) -->
+    <div class="cta-row cta-row-after-video">
+      <a class="cta" id="cta-compre-video" href="contato.html">COMPRE AQUI</a>
+      <span class="cta-note">Fale com a gente e garanta o seu</span>
+    </div>
+  </section>
 
   <section class="content-box">
     <h2>Como funciona</h2>
     <p>Se as plantas ficam em local aberto (pega chuva) você pode adiar a programação em dias de chuva. Assim, o sistema economiza água.</p>
-    <p>No período de adaptação, você verifica se os vasos estão secos ou encharcados e faz pequenos ajustes com o acessório que regula a vazão de água — vaso a vaso — para equilíbrio perfeito.</p>
-    <p>O Aguatudo também atende <strong>hortas e jardins maiores</strong>: é só conectar aos equipamentos de maior escala.</p>
-  </section>
-</main>
-
-<footer>
-  © 2026 Aguatudo. Todos os direitos reservados.
-</footer>
-</body>
-</html>
+    <p>No período de adaptação, você verifica se os vasos estão secos ou encharcados e faz pequenos ajustes com o acessório que regula
