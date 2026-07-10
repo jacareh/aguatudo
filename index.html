@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aguatudo — Irrigação inteligente</title>
+  <title>Aguatudo — O irrigador que mede a chuva no seu quintal</title>
+  <meta name="description" content="O Aguatudo mede a chuva onde a sua planta está — não num servidor a 30 km. Rega na medida certa, funciona sem internet. Entre na lista do primeiro lote." />
 
-  <!-- Google Analytics GA4 -->
+  <!-- Google Analytics GA4 (preservado) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,7 +15,10 @@
     gtag('config', 'G-27Q59PLKST');
   </script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css" />
 </head>
 
 <body>
@@ -26,94 +30,309 @@
       <li><a href="contato.html">Contato</a></li>
       <li><a href="manual.pdf">Manual</a></li>
       <li class="spacer"></li>
-      <li><a class="social" href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="index-en.html">EN</a></li>
+      <li><a class="nav-cta" href="#lista">Lista do 1º lote</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero content-box">
-    <h1>Algumas plantas não são só plantas.</h1>
-    <p class="lead">
-      Presentes, memórias, rituais, cheiros de casa.
-      O Aguatudo nasceu para que esse cuidado continue —
-      mesmo quando você não está por perto.
-    </p>
-
-    <div class="cta-wrap">
-      <a class="cta-btn" href="contato.html" id="cta-compre-hero">COMPRE AQUI</a>
+  <!-- ============ 1 · HERO (emoção) ============ -->
+  <section class="hero">
+    <div class="gotas" aria-hidden="true">
+      <span style="left:8%;  animation-duration:2.8s; animation-delay:.2s"></span>
+      <span style="left:19%; animation-duration:3.4s; animation-delay:1.1s"></span>
+      <span style="left:31%; animation-duration:2.6s; animation-delay:.6s"></span>
+      <span style="left:47%; animation-duration:3.1s; animation-delay:1.6s"></span>
+      <span style="left:58%; animation-duration:2.9s; animation-delay:.1s"></span>
+      <span style="left:71%; animation-duration:3.6s; animation-delay:.9s"></span>
+      <span style="left:83%; animation-duration:2.7s; animation-delay:1.3s"></span>
+      <span style="left:93%; animation-duration:3.2s; animation-delay:.4s"></span>
     </div>
-    <p class="cta-sub">Pré-venda • orçamento • dúvidas rápidas</p>
-  </section>
 
-  <!-- MANIFESTO -->
-  <section class="content-box manifesto">
-    <h2>Um cuidado a menos na cabeça</h2>
-    <p>
-      Você sai de casa e o pensamento vem:
-      <em>“Será que reguei?” “Será que foi demais?”</em>
-    </p>
-    <p>
-      O Aguatudo existe para tirar essa preocupação do caminho —
-      sem transformar sua rotina em um app,
-      sem exigir internet,
-      sem pedir atenção o tempo todo.
-    </p>
-  </section>
-
-  <!-- DIFERENCIAIS -->
-  <section class="content-box">
-    <h2>Por que ele funciona tão bem no dia a dia</h2>
-
-    <div class="grid">
-      <article class="card"><h3>Sensor de Chuva</h3><p>Trabalha combinado com São Pedro.</p></article>
-      <article class="card"><h3>Reação à chuva ajustável</h3><p>Se choveu pouco, rega menos. Se choveu muito, então não rega.</p></article>
-      <article class="card"><h3>Precisão de segundos</h3><p>Evita transbordar um vasinho.</p></article>
-      <article class="card"><h3>Funciona offline</h3><p>Não depende de internet.</p></article>
-      <article class="card"><h3>Materiais duráveis</h3><p><strong>Feito com alumínio</strong> e <strong>vidro</strong>.</p></article>
-      <article class="card"><h3>Sem pilhas</h3><p>Ligue direto na rede elétrica.</p></article>
-      <article class="card"><h3>Luzes indicativas</h3><p>Saiba quanto choveu ou o status do dispositivo.</p></article>
-      <article class="card"><h3>Apenas um botão</h3><p>Toda a experiência simplificada.</p></article>
-      <article class="card"><h3>Timeout para fechar a água</h3><p>Sempre fecha a água e evita desperdícios se esquecer aberto.</p></article>
-     </div>
-  </section>
-
-  <!-- VÍDEO -->
-  <section class="content-box">
-    <h2>Veja o Aguatudo em ação</h2>
-
-    <!-- MINIATURA -->
-    <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
-      <img src="./mini_do_shorts.png" alt="Aguatudo em ação (vídeo)" loading="lazy" decoding="async" />
-      <span class="video-play" aria-hidden="true"></span>
-    </button>
-
-    <div class="cta-wrap cta-wrap-after-video">
-      <a class="cta-btn" href="contato.html" id="cta-compre-video">COMPRE AQUI</a>
+    <div class="wrap">
+      <div class="chuva-selo"><span class="dot"></span> chuva detectada → rega de hoje cancelada</div>
+      <h1>Algumas plantas não são só plantas.</h1>
+      <p class="lead">
+        Presentes, memórias, rituais, cheiros de casa.
+        O Aguatudo nasceu para que esse cuidado continue —
+        mesmo quando você não está por perto.
+      </p>
+      <a class="cta-btn" href="#lista" id="cta-hero">Quero o meu no primeiro lote</a>
+      <p class="cta-sub">Pré-produção · prioridade por ordem de chegada</p>
     </div>
-    <p class="cta-sub">Fale com a gente e garanta o seu Aguatudo</p>
+  </section>
+
+  <!-- ============ 2 · A DOR ============ -->
+  <section class="dor">
+    <div class="wrap">
+      <p class="eyebrow">o problema</p>
+      <h2>Seu irrigador já regou debaixo de chuva.<br>Você só não estava olhando.</h2>
+      <p class="lead">
+        É a cena mais irritante da jardinagem automática: o céu despejando água
+        e o aspersor jogando mais água por cima. O timer não é burro por maldade —
+        ele simplesmente não sabe. Ele só sabe que são 6 da manhã.
+      </p>
+      <blockquote>
+        “Ah, mas o meu consulta a previsão do tempo.” Consulta — a previsão da sua
+        <em>cidade</em>. Choveu no aeroporto e não na sua rua? Sua horta passa sede.
+        Choveu na sua rua e não no aeroporto? Rega em cima de chuva, de novo.
+      </blockquote>
+      <p class="lead" style="margin-top:26px"><strong>Você não precisa de uma previsão. Você precisa de uma testemunha.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ 3 · A PROMESSA ============ -->
+  <section class="promessa">
+    <div class="wrap">
+      <p class="eyebrow">a promessa</p>
+      <h2>O Aguatudo trabalha combinado com São Pedro.</h2>
+      <p class="lead">
+        Ele mede a chuva onde a sua planta está. Não a 30 quilômetros, num servidor
+        de terceiros — no seu quintal, na sua varanda, no seu telhado.
+      </p>
+      <p class="lead">
+        Uma tecnologia de detecção de chuva de alta eficácia e durabilidade — em corpo
+        de <strong>alumínio e vidro</strong>, sem peças que envelhecem ou apodrecem —
+        sente a chuva de verdade, mede quanto tempo choveu e faz a conta:
+        encurta a rega, cancela a rega, ou mantém, na proporção exata.
+      </p>
+      <p class="lead">
+        Choveu 10 minutos? A rega diminui na mesma medida. Choveu o bastante?
+        Hoje ele deixa o céu trabalhar. Não é um interruptor chove/não-chove:
+        é matemática feita com a chuva que realmente caiu no seu chão.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 4 · PROVA: O MERCADO ============ -->
+  <section class="mercado">
+    <div class="wrap">
+      <p class="eyebrow">a prova · parte 1</p>
+      <h2>Nós estudamos os concorrentes para você não precisar.</h2>
+      <p class="lead">
+        Antes de construir o Aguatudo, fomos ler o que cada alternativa realmente
+        entrega. Não o que o anúncio promete — o que o manual admite.
+      </p>
+
+      <div class="grid3">
+        <article class="rival">
+          <h3>O timer importado</h3>
+          <p class="preco">R$ 872 · pilhas · uso externo</p>
+          <span class="falha">sem sensor de chuva</span>
+          <p>Custa quase um salário mínimo e não tem sensor de chuva. O que tem é um botão:
+          <em>você</em> vê que choveu, <em>você</em> aperta, ele pausa por até 96 horas.
+          Chamam de “Rain Delay”. Nós chamamos de você trabalhando para o timer.</p>
+        </article>
+
+        <article class="rival">
+          <h3>O sensor de cortiça</h3>
+          <p class="preco">~R$ 262 · vendido separado · exige 24 V</p>
+          <span class="falha">discos apodrecem em 3–5 anos</span>
+          <p>Não conversa com o timer a pilha ao lado — exige instalação elétrica própria.
+          Detecta chuva com discos de cortiça que incham quando molham. Funciona. Por 3 a 5
+          anos. Depois a cortiça envelhece, o sensor trava “molhado” — e existe um mercado
+          inteiro de discos de reposição para provar o ponto.</p>
+        </article>
+
+        <article class="rival">
+          <h3>A válvula “inteligente”</h3>
+          <p class="preco">~US$ 40 · + gateway obrigatório</p>
+          <span class="falha">confia num servidor a 30 km</span>
+          <p>Sensor de chuva: nenhum. O “inteligente” é consultar a previsão do tempo de
+          terceiros — e a letra miúda do próprio fabricante avisa que as condições reais
+          podem diferir. No fórum oficial, usuários encontram as plantas molhadas em dia
+          de chuva — e, quando o sinal cai, a rega simplesmente não acontece.</p>
+        </article>
+      </div>
+
+      <div class="fecho">
+        Ninguém nesta faixa mede a chuva onde a planta está.
+        O Aguatudo, a <strong>R$ 450–500</strong>, custa menos que o timer importado
+        sozinho — <strong>aquele que nem sensor tem.</strong>
+      </div>
+      <p class="fonte">Preços e especificações de concorrentes verificados em julho/2026, em páginas de fabricante e distribuidor.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5 · PROVA: CHUVA REAL ============ -->
+  <section>
+    <div class="wrap">
+      <div class="evidencia">
+        <p class="eyebrow">a prova · parte 2</p>
+        <h2>Isto é uma chuva real.<br>E esta é a rega que ele cancelou.</h2>
+        <p>
+          Nada de “economize até X%” tirado do nada. Uma chuva, medida no aparelho,
+          exportada do aparelho, com a decisão que ele tomou. Baixe o arquivo.
+          Confira você mesmo.
+        </p>
+        <!-- ⬜ SUBSTITUIR: gráfico/captura do evento real + link do CSV -->
+        <div class="placeholder">
+          [ captura do evento de chuva real entra aqui ]<br>
+          data · duração da chuva · decisão tomada · CSV para download
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · POSTURA ============ -->
+  <section class="postura">
+    <div class="wrap">
+      <p class="eyebrow">a diferença</p>
+      <h2>Ensinado a duvidar de si mesmo.</h2>
+      <p class="lead">
+        Qualquer sensor barato grita “chuva!” para qualquer gota. O Aguatudo foi
+        construído com outra postura: antes de mexer na sua rega, ele confere.
+      </p>
+
+      <div class="grid2">
+        <article class="principio">
+          <h3>Orvalho não é chuva</h3>
+          <p>Um toque isolado de madrugada — sereno, condensação — não cancela a sua rega.
+          Ele só acredita em chuva com confirmação: mais água em seguida, ou molhado
+          contínuo o bastante para não restar dúvida.</p>
+        </article>
+        <article class="principio">
+          <h3>A própria água não é chuva</h3>
+          <p>Se o aspersor molha o sensor, ele sabe que foi ele mesmo — até nos minutos de
+          gotejamento depois de fechar — e desconta. Senão a rega de hoje cancelaria a de
+          amanhã, para sempre.</p>
+        </article>
+        <article class="principio">
+          <h3>Leitura contaminada é sinalizada, não escondida</h3>
+          <p>O aparelho vive no sol — é o único jeito de ver chuva. Sol esquenta sensor.
+          Em vez de fingir que não, ele anota quais leituras sofreram interferência e
+          destaca as leituras limpas como as mais fiéis. O gráfico mostra as duas curvas,
+          sem maquiagem.</p>
+        </article>
+        <article class="principio">
+          <h3>Faltou luz? Ele não finge que nada houve</h3>
+          <p>Se a energia caiu na hora da rega, ao voltar ele decide: se o atraso ainda cabe
+          na tolerância que você definiu (até 24 h), executa a rega atrasada. Se não cabe,
+          avisa — em vez de regar na hora errada.</p>
+        </article>
+        <article class="principio">
+          <h3>Funciona sozinho. De verdade.</h3>
+          <p>Sem nuvem, sem conta, sem gateway, sem mensalidade. A programação mora no
+          aparelho: a internet pode cair — a sua rega acontece. A interface é uma página
+          web servida pelo próprio Aguatudo, com um botão só no hardware e luzes que
+          mostram quanto choveu.</p>
+        </article>
+        <article class="principio">
+          <h3>Anos de histórico. Seus.</h3>
+          <p>Temperatura mínima, média e máxima, minutos de chuva por dia — guardados no
+          aparelho, exportáveis em CSV. É a estação meteorológica do seu quintal, sem
+          assinatura e sem pedir licença a ninguém.</p>
+        </article>
+      </div>
+      <!-- ⬜ AQUI: capturas de tela do firmware (gráfico de temperatura com curvas
+           de causa, página de chuva, calendário meteorológico) -->
+    </div>
+  </section>
+
+  <!-- ============ 7 · HERANÇA ============ -->
+  <section class="heranca">
+    <div class="wrap">
+      <div class="duo">
+        <div>
+          <p class="eyebrow">nossa história</p>
+          <h2>Isso vem de longe.</h2>
+          <p class="lead">
+            Nos anos 1980, Antonio Vendramin cuidava de um orquidário com quase dez mil
+            vasos em Jundiaí — e levava água a cada um deles por microtubos, numa época
+            em que ninguém no Brasil fazia isso.
+          </p>
+          <p class="lead">
+            O Aguatudo é o neto retomando a obsessão do avô: medir de verdade, regar na
+            medida certa, cuidar como quem sabe que algumas plantas não são só plantas.
+          </p>
+          <p><a href="nossa_historia.html"><strong>Conheça a história completa →</strong></a></p>
+        </div>
+        <img src="foto_orquidário_3.png" alt="Orquidário de Antonio Vendramin, com milhares de vasos de orquídeas" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · ALCANCE ============ -->
+  <section class="alcance">
+    <div class="wrap">
+      <p class="eyebrow">alcance</p>
+      <h2>Do vasinho na varanda ao gramado com rotores enterrados.</h2>
+      <p class="lead">
+        Engate rápido embutido no próprio aparelho: conectou, funcionou. Bailarinas,
+        rotores, gotejadores, mangueiras gotejadoras, aspersores, micro-aspersores —
+        se rega, encaixa. E liga direto na tomada: sem pilha para trocar, sem rega
+        perdida por bateria fraca.
+      </p>
+      <img src="foto_kit.jpg" alt="Kit Aguatudo completo: aparelho em alumínio e vidro, engates rápidos, mangueiras e fonte de alimentação" loading="lazy" decoding="async" />
+      <div class="indoor">
+        <strong>E um segredo que nenhum concorrente pode contar: dentro de casa também.</strong><br>
+        Timers comuns trabalham em minutos. O Aguatudo programa início e fim ao segundo —
+        a diferença entre regar um vasinho e transbordar um vasinho. Sua samambaia da
+        sala agradece.
+      </div>
+      <!-- ⬜ AQUI: fotos instaladas (vaso/varanda, horta, gramado) + foto própria do engate rápido -->
+    </div>
+  </section>
+
+  <!-- ============ VÍDEO (preservado) ============ -->
+  <section>
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow">em ação</p>
+      <h2>Veja o Aguatudo trabalhando.</h2>
+      <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
+        <img src="./mini_do_shorts.png" alt="Aguatudo em ação (vídeo)" loading="lazy" decoding="async" />
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ 9 · LISTA DE ESPERA ============ -->
+  <section class="lista" id="lista">
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow">primeiro lote</p>
+      <!-- ⬜ SUBSTITUIR [mês] pelo prazo real assim que definido -->
+      <h2>Primeiro lote em [mês].<br>Quem chega antes, recebe antes.</h2>
+      <p class="lead" style="margin:0 auto">
+        O Aguatudo está em pré-produção, com a fábrica pronta para os primeiros pedidos.
+        Não vamos inventar um estoque que não existe — o que temos é uma lista de espera
+        com prioridade por ordem de chegada.
+      </p>
+
+      <div class="form-card">
+        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
+          <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required />
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+          <label for="whatsapp">WhatsApp (opcional)</label>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
+          <button class="cta-btn" type="submit">Entrar na lista do primeiro lote</button>
+          <p id="form-status" role="status"></p>
+        </form>
+        <p class="cta-sub">Sem spam. Um aviso quando o lote abrir, e só.</p>
+      </div>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  © 2026 Aguatudo. Todos os direitos reservados.
+  © 2026 Aguatudo · <a href="mailto:contato@aguatudo.com.br">contato@aguatudo.com.br</a> · Jundiaí, SP
 </footer>
 
-<!-- VIDEO MODAL (OBRIGATÓRIO) -->
+<!-- VIDEO MODAL (preservado do site atual) -->
 <div class="video-modal" id="videoModal" aria-hidden="true">
   <div class="video-modal__backdrop" id="closeVideo"></div>
-
   <div class="video-modal__panel" role="dialog" aria-modal="true">
     <button class="video-modal__close" id="closeVideoBtn" aria-label="Fechar">✕</button>
     <div class="video-modal__frame"></div>
   </div>
 </div>
 
-<!-- SCRIPT DO MODAL (FUNCIONAL) -->
 <script>
 (function () {
   const openBtn  = document.getElementById('openVideo');
@@ -129,24 +348,51 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     frame.innerHTML = `<iframe src="${EMBED}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-
-    if (typeof gtag === 'function') {
-      gtag('event', 'play_video', { event_label: 'modal_home' });
-    }
+    if (typeof gtag === 'function') gtag('event', 'play_video', { event_label: 'modal_home' });
   }
-
   function closeModal() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     frame.innerHTML = '';
   }
-
   openBtn.addEventListener('click', openModal);
   closeBg.addEventListener('click', closeModal);
   closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
+/* Lista de espera — mesmo Formspree, mensagem adaptada */
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('email')?.value || '').trim();
+    const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
+
+    if (!email && !whatsapp) {
+      status.textContent = 'Preencha pelo menos E-mail ou WhatsApp.';
+      status.style.color = '#b3541e';
+      return;
+    }
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Você está na lista do primeiro lote ✓';
+        status.style.color = '#0b8c74';
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist_home' });
+      } else {
+        status.textContent = 'Houve um problema ao enviar. Tente novamente.';
+        status.style.color = '#b3541e';
+      }
+    } catch {
+      status.textContent = 'Erro de conexão. Verifique sua internet.';
+      status.style.color = '#b3541e';
+    }
   });
 })();
 </script>
