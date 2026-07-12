@@ -279,3 +279,62 @@ footer a { color: var(--teal-vivo); }
 .ls-card .principio p { color: rgba(234,247,253,.88); }
 .ls-card .fonte { color: rgba(234,247,253,.6); margin-top: 22px; }
 @media (max-width: 620px) { .ls-card { padding: 26px; } }
+
+/* ---------- Tagline do hero ---------- */
+.tagline {
+  font-family: "Sora", sans-serif; font-weight: 700;
+  font-size: clamp(18px, 2.6vw, 24px); color: var(--teal-escuro);
+  margin: 6px 0 26px; letter-spacing: .01em;
+}
+
+/* ---------- Como funciona (3 passos) ---------- */
+.como-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px;
+  align-items: center; margin-top: 32px;
+}
+@media (max-width: 820px) { .como-grid { grid-template-columns: 1fr; } }
+.passo { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
+.passo .num {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--teal); color: #fff; font-family: "Sora", sans-serif;
+  font-weight: 700; font-size: 1.1rem; display: grid; place-items: center;
+  box-shadow: 0 6px 16px rgba(11,140,116,.35);
+}
+.passo h3 { margin: 4px 0 6px; font-size: 1.1rem; color: var(--ink); }
+.passo p { margin: 0; color: var(--ink-suave); }
+.como-foto { margin: 0; }
+.como-foto img {
+  width: 100%; max-width: 340px; border-radius: var(--raio);
+  box-shadow: var(--sombra); display: block; margin: 0 auto;
+}
+.como-foto figcaption {
+  margin-top: 12px; text-align: center; font-size: .9rem;
+  color: var(--ink-suave); font-style: italic;
+}
+.como-fecho {
+  margin-top: 30px; padding: 20px 24px; border-radius: var(--raio);
+  background: var(--celeste-claro); border-left: 5px solid var(--teal);
+  color: var(--ink); max-width: 52rem;
+}
+
+/* ---------- O lado B (entusiastas) ---------- */
+.lado-b-duo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+  align-items: center; margin-top: 30px;
+}
+@media (max-width: 820px) { .lado-b-duo { grid-template-columns: 1fr; } }
+.print-claro { margin: 0; }
+.print-claro img {
+  width: 100%; border-radius: 12px; box-shadow: var(--sombra);
+  border: 1px solid rgba(18,55,66,.10); display: block;
+}
+.print-claro figcaption {
+  margin-top: 12px; font-size: .9rem; color: var(--ink-suave); font-style: italic;
+}
+.lado-b-txt h3 { margin: 0 0 6px; font-size: 1.1rem; color: var(--teal-escuro); }
+.lado-b-txt h3:nth-of-type(2) { margin-top: 22px; }
+.lado-b-txt p { margin: 0; color: var(--ink-suave); }
+
+/* ---------- ROI / economia ---------- */
+.roi { background: linear-gradient(180deg, var(--celeste-claro), transparent); }
+.roi .lead { max-width: 52rem; }
