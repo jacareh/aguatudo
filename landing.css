@@ -245,3 +245,37 @@ footer a { color: var(--teal-vivo); }
 
 /* ---------- Acessibilidade ---------- */
 :focus-visible { outline: 3px solid rgba(0,194,168,.55); outline-offset: 2px; }
+
+/* ---------- Captura real na seção de prova ---------- */
+.print {
+  margin: 24px 0 0; padding: 0;
+}
+.print img {
+  width: 100%; border-radius: 12px; display: block;
+  border: 1px solid rgba(234,247,253,.18);
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+.print-legenda { margin-top: 22px; }
+.print-legenda > p { margin: 0 0 12px; color: var(--teal-vivo); font-weight: 700; }
+.print-legenda ul { margin: 0; padding-left: 20px; }
+.print-legenda li { margin: 0 0 10px; color: rgba(234,247,253,.9); font-size: .97rem; line-height: 1.55; }
+.print-legenda strong { color: #fff; }
+
+/* ---------- Linha superior (módulo ambiental) ---------- */
+.linha-superior { padding-top: 0; }
+.ls-card {
+  background: linear-gradient(160deg, #0e3a4a 0%, #0b8c74 140%);
+  color: #eaf7fd; border-radius: var(--raio); padding: 40px;
+  box-shadow: var(--sombra);
+}
+.ls-card .eyebrow { color: var(--teal-vivo); }
+.ls-card h2 { color: #fff; }
+.ls-card .lead { color: rgba(234,247,253,.92); }
+.ls-card .principio {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  box-shadow: none;
+}
+.ls-card .principio h3 { color: var(--teal-vivo); }
+.ls-card .principio p { color: rgba(234,247,253,.88); }
+.ls-card .fonte { color: rgba(234,247,253,.6); margin-top: 22px; }
+@media (max-width: 620px) { .ls-card { padding: 26px; } }

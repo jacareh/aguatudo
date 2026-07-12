@@ -164,15 +164,40 @@
         <p class="eyebrow">a prova · parte 2</p>
         <h2>Isto é uma chuva real.<br>E esta é a rega que ele cancelou.</h2>
         <p>
-          Nada de “economize até X%” tirado do nada. Uma chuva, medida no aparelho,
-          exportada do aparelho, com a decisão que ele tomou. Baixe o arquivo.
-          Confira você mesmo.
+          Nada de “economize até X%” tirado do nada. Esta é a tela de histórico
+          de um Aguatudo em campo — a mesma que você abre no navegador, servida
+          pelo próprio aparelho, sem nuvem e sem conta.
         </p>
-        <!-- ⬜ SUBSTITUIR: gráfico/captura do evento real + link do CSV -->
-        <div class="placeholder">
-          [ captura do evento de chuva real entra aqui ]<br>
-          data · duração da chuva · decisão tomada · CSV para download
+
+        <figure class="print">
+          <img src="print_historico_aguatudo.png"
+               alt="Tela de Histórico Meteorológico do Aguatudo: temperatura atual calibrada, chuva acumulada do dia e gráfico de 7 dias com janelas de sol e leituras de rega excluídas" loading="lazy" decoding="async" />
+        </figure>
+
+        <div class="print-legenda">
+          <p>Repare no que ele confessa, sem que ninguém pergunte:</p>
+          <ul>
+            <li><strong>Duas temperaturas, lado a lado.</strong> “20,75°C” é a
+            estimativa real; “sensor 20,50°C” é o que o componente leu cru. Ele
+            mostra as duas — e avisa que rádio, relé e sol esquentam o sensor.</li>
+            <li><strong>A faixa amarela é o sol deste aparelho</strong> (10–16 h).
+            A média diária é calculada “à sombra”, sem essas horas — como fazem as
+            estações meteorológicas de verdade.</li>
+            <li><strong>Os losangos são leituras de rega, excluídas e
+            interpoladas.</strong> Quando a água passa perto do sensor, ele
+            descarta o ponto em vez de fingir que era o clima.</li>
+            <li><strong>“132 intervalos sem leitura”, dito na cara.</strong> Onde
+            houve reboot ou queda de energia, o gráfico marca o buraco em cinza —
+            não inventa uma linha reta por cima.</li>
+          </ul>
         </div>
+
+        <!-- ⬜ OPCIONAL: quando houver, trocar por um evento de CHUVA real com
+             a rega cancelada + link do CSV para download. Esta tela já sustenta
+             a seção; o CSV é o próximo nível de prova. -->
+        <p class="cta-sub" style="margin-top:18px">
+          Captura real de um aparelho em operação · julho/2026
+        </p>
       </div>
     </div>
   </section>
@@ -229,6 +254,59 @@
       </div>
       <!-- ⬜ AQUI: capturas de tela do firmware (gráfico de temperatura com curvas
            de causa, página de chuva, calendário meteorológico) -->
+    </div>
+  </section>
+
+  <!-- ============ 6.5 · LINHA SUPERIOR (módulo ambiental · opcional) ============ -->
+  <section class="linha-superior">
+    <div class="wrap">
+      <div class="ls-card">
+        <p class="eyebrow">linha superior · sensor ambiental</p>
+        <h2>Para quem quer que o aparelho perceba ainda mais.</h2>
+        <p class="lead">
+          A mesma postura, levada adiante. Uma versão do Aguatudo traz, dentro
+          da carcaça, um sensor ambiental que acompanha o que acontece do lado
+          de dentro da rega — e foi projetado para distinguir coisas que os
+          aparelhos comuns confundem.
+        </p>
+
+        <div class="grid2" style="margin-top:26px">
+          <article class="principio">
+            <h3>Válvula a seco não é válvula com água</h3>
+            <p>Quando a válvula abre, a temperatura do próprio tubo denuncia se a
+            água realmente veio: com fluxo, o tubo esfria; a seco — registro
+            fechado, mangueira solta, falta d’água na rua — ele esquenta. O
+            aparelho aprende o padrão normal da sua instalação e foi projetado
+            para avisar quando algo foge dele. Sem sensor de vazão.</p>
+          </article>
+          <article class="principio">
+            <h3>Orvalho que seca não é infiltração que fica</h3>
+            <p>A umidade interna que sobe de madrugada e seca de dia é orvalho
+            normal. A que fica saturada dia após dia pode ser infiltração. O
+            aparelho acompanha esse ciclo e foi projetado para sinalizar quando a
+            vedação da carcaça pede atenção — saúde do produto ao longo dos meses.</p>
+          </article>
+          <article class="principio">
+            <h3>Ele também sente a chuva chegar</h3>
+            <p>A queda de pressão típica de uma frente se aproximando faz o
+            aparelho esperar um pouco antes de regar, dentro da tolerância que
+            você definiu — e se a chuva não vier, ele rega assim mesmo. Previsão
+            e medição, as duas locais, no seu quintal.</p>
+          </article>
+          <article class="principio">
+            <h3>Umidade no seu histórico</h3>
+            <p>A umidade relativa entra no calendário, ao lado da temperatura e
+            da chuva. A estação meteorológica do seu quintal fica mais completa —
+            e continua sendo só sua, exportável, sem assinatura.</p>
+          </article>
+        </div>
+
+        <p class="fonte">
+          Recurso da linha com sensor ambiental (opcional) — nem toda unidade o
+          inclui. Em validação de campo; disponibilidade confirmada na abertura
+          do primeiro lote.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -293,12 +371,11 @@
   <section class="lista" id="lista">
     <div class="wrap" style="text-align:center">
       <p class="eyebrow">primeiro lote</p>
-      <!-- ⬜ SUBSTITUIR [mês] pelo prazo real assim que definido -->
-      <h2>Primeiro lote em setembro.<br>Quem chega antes, recebe antes.</h2>
+      <h2>Primeiro lote em setembro de 2026.<br>Quem chega antes, recebe antes.</h2>
       <p class="lead" style="margin:0 auto">
-        O Aguatudo está em pré-produção, com a fábrica pronta para os primeiros pedidos.
-        Não vamos inventar um estoque que não existe — o que temos é uma lista de espera
-        com prioridade por ordem de chegada.
+        O Aguatudo está em pré-produção. O primeiro lote é de <strong>90 unidades</strong>,
+        previstas para setembro de 2026 — e não vamos inventar um estoque que não existe.
+        O que temos é uma lista de espera com prioridade por ordem de chegada.
       </p>
 
       <div class="form-card">
