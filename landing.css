@@ -2,16 +2,16 @@
    AGUATUDO — landing v2 · céu → branco → verde da marca
    ============================================================ */
 :root {
-  --celeste: #14b4c4;      /* ciano da UI (header) */
-  --celeste-claro: #cdeef2;
+  --celeste: #00adc3;      /* ciano da UI (topo do gradiente) */
+  --celeste-claro: #7fd9e3;
   --branco: #ffffff;
   --ink: #123742;          /* texto principal: azul-petróleo profundo */
   --ink-suave: #3f6270;
-  --teal: #00adc3;         /* teal do botão 'Ligar Água' da UI */
+  --teal: #00adc3;         /* mesmo ciano da UI nos CTAs */
   --teal-vivo: #00c2a8;
   --teal-escuro: #067a8a;
   --chuva: #1f8fc4;        /* azul de dado/chuva */
-  --alerta: #b3541e;       /* tom quente p/ fraquezas de concorrente */
+  --alerta: #f06a00;       /* laranja da UI (avisos/supressão) */
   --cartao: #ffffff;
   --sombra: 0 10px 30px rgba(18, 55, 66, .10);
   --raio: 16px;
@@ -25,12 +25,8 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink);
-  background:
-    linear-gradient(180deg,
-      var(--celeste) 0%,
-      var(--celeste-claro) 26%,
-      var(--branco) 52%);
-  background-attachment: scroll;
+  background: linear-gradient(to bottom, #00adc3 0%, #ffffff 60%);
+  background-attachment: fixed;
 }
 h1, h2, h3 { font-family: "Sora", "Atkinson Hyperlegible", sans-serif; line-height: 1.2; }
 .mono { font-family: "IBM Plex Mono", monospace; }
