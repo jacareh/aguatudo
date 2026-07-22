@@ -424,3 +424,67 @@ footer a { color: var(--teal-vivo); }
   color: #fff !important; border-top: 1px solid rgba(234,247,253,.2);
   padding-top: 16px; margin-top: 4px !important;
 }
+
+/* ============================================================
+   v10 — página enxuta: CTA intermediário, LEDs inline, seção pro
+   ============================================================ */
+
+/* CTA no meio da página */
+.cta-meio {
+  text-align: center; padding: 48px 0;
+  background: linear-gradient(180deg, transparent, rgba(0,173,195,.07), transparent);
+}
+.cta-meio p { font-family: "Sora", sans-serif; font-weight: 600;
+  font-size: 1.15rem; color: var(--ink); margin: 0 0 16px; }
+
+/* LEDs em linha (dentro do Como funciona) */
+.led-inline {
+  margin-top: 30px; padding: 20px 24px; border-radius: var(--raio);
+  background: var(--cartao); border: 1px solid rgba(18,55,66,.10);
+  box-shadow: var(--sombra);
+}
+.led-inline > strong { display: block; margin-bottom: 12px; color: var(--ink); }
+.led-chips { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+.led-chips > span {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .92rem; color: var(--ink-suave);
+}
+.led-inline em { color: var(--ink-suave); font-size: .92rem; }
+
+/* Seção Irrigação profissional (recolhível) */
+.pro { padding-top: 24px; padding-bottom: 64px; }
+.pro details {
+  background: var(--cartao); border: 1px solid rgba(18,55,66,.12);
+  border-radius: var(--raio); box-shadow: var(--sombra); overflow: hidden;
+}
+.pro summary {
+  cursor: pointer; padding: 26px 30px; list-style: none;
+  background: linear-gradient(135deg, #0e3a4a, #067a8a); color: #eaf7fd;
+}
+.pro summary::-webkit-details-marker { display: none; }
+.pro-title {
+  display: block; font-family: "Sora", sans-serif; font-weight: 700;
+  font-size: clamp(19px, 2.6vw, 24px); color: #fff; margin-bottom: 4px;
+}
+.pro-sub { display: block; font-size: .92rem; color: rgba(234,247,253,.85); }
+.pro summary:hover .pro-sub { color: #fff; }
+.pro-body { padding: 30px; }
+.pro-body h3 {
+  margin: 28px 0 8px; font-size: 1.1rem; color: var(--teal-escuro);
+}
+.pro-body h3:first-child { margin-top: 0; }
+.pro-body p { margin: 0 0 10px; color: var(--ink-suave); max-width: 54rem; }
+.pro-nota {
+  font-size: .9rem; font-style: italic;
+  border-left: 3px solid var(--teal); padding-left: 14px;
+}
+.pro-body .print-claro { margin: 14px 0 6px; max-width: 520px; }
+.pro-cta {
+  margin-top: 36px; padding-top: 26px; text-align: center;
+  border-top: 1px solid rgba(18,55,66,.12);
+}
+.pro-cta p { font-family: "Sora", sans-serif; font-weight: 600;
+  color: var(--ink); margin-bottom: 14px; }
+
+/* vídeo: menos respiro que antes */
+.video-sec { padding: 56px 0; }
