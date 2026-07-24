@@ -55,10 +55,12 @@
     <div class="wrap">
       <div class="chuva-selo"><span class="dot"></span> chuva detectada → rega de hoje cancelada</div>
       <p class="hero-kicker">Algumas plantas não são só plantas.</p>
-      <h1>O irrigador que sente a chuva no seu quintal —<br>e economiza a água que você pagaria.</h1>
+      <h1 class="h1-hook">GRAVE UMA VEZ.<br>ELE NUNCA ESQUECE.</h1>
+      <p class="hero-sub">
+        Um botão programa a rega. Ele repete todo dia — e poupa a água quando chove.
+      </p>
       <p class="lead">
-        Grave a rega com um botão. Ele repete todo dia, no mesmo horário.
-        E quando chove, ele poupa a água por você.
+        Sem app, sem nuvem, sem conta. Só uma torneira e uma tomada.
       </p>
       <a class="cta-btn" href="#lista" id="cta-hero">Quero o meu no primeiro lote</a>
       <p class="cta-sub">90 unidades · setembro de 2026</p>
@@ -254,6 +256,7 @@
       </p>
 
       <div class="form-card">
+        <!-- PASSO 1 — cadastro (mínimo) -->
         <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
           <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
           <label for="nome">Nome</label>
@@ -265,7 +268,83 @@
           <button class="cta-btn" type="submit">Entrar na lista do primeiro lote</button>
           <p id="form-status" role="status"></p>
         </form>
-        <p class="cta-sub">Sem spam. Um aviso quando o lote abrir, e só.</p>
+        <p class="cta-sub" id="form-nota">Sem spam. Um aviso quando o lote abrir, e só.</p>
+
+        <!-- PASSO 2 — detalhes do kit (opcional, aparece após o passo 1) -->
+        <div id="passo2" hidden>
+          <div class="p2-ok">
+            <span class="p2-check">✓</span>
+            <div>
+              <strong>Pronto, você está na lista.</strong>
+              <span>Sua vaga está garantida por ordem de chegada.</span>
+            </div>
+          </div>
+
+          <p class="p2-intro">
+            <strong>Quer nos ajudar a preparar o seu kit?</strong><br>
+            Trinta segundos. Assim já separamos os engates e o comprimento certo
+            para a sua instalação — e você recebe pronto para conectar.
+          </p>
+
+          <form id="detalhes-form" action="https://formspree.io/f/xgvydwdb" method="POST">
+            <input type="hidden" name="_subject" value="Detalhes do kit — lista 1º lote" />
+            <input type="hidden" id="d-email" name="email_ref" />
+            <input type="hidden" id="d-nome" name="nome_ref" />
+
+            <label for="d-local">Onde o Aguatudo vai trabalhar?</label>
+            <select id="d-local" name="tipo_instalacao">
+              <option value="">Selecione…</option>
+              <option>Varanda / vasos na janela</option>
+              <option>Apartamento (jardineiras)</option>
+              <option>Jardim pequeno</option>
+              <option>Jardim médio</option>
+              <option>Jardim grande / gramado</option>
+              <option>Horta</option>
+              <option>Pomar</option>
+              <option>Orquidário / plantas especiais</option>
+              <option>Irrigação profissional / produção</option>
+              <option>É presente para alguém</option>
+              <option>Prefiro não dizer</option>
+            </select>
+
+            <label for="d-existe">Já existe alguma instalação de irrigação?</label>
+            <select id="d-existe" name="instalacao_existente">
+              <option value="">Selecione…</option>
+              <option>Já tenho mangueira/aspersores — só quero acoplar o Aguatudo</option>
+              <option>Vou montar do zero — quero o kit completo</option>
+              <option>Ainda não sei</option>
+            </select>
+
+            <label for="d-regiao">Região do Brasil</label>
+            <select id="d-regiao" name="regiao">
+              <option value="">Selecione…</option>
+              <option>Norte</option>
+              <option>Nordeste</option>
+              <option>Centro-Oeste</option>
+              <option>Sudeste</option>
+              <option>Sul</option>
+              <option>Fora do Brasil</option>
+            </select>
+
+            <label for="d-conta">Quer contar o que pretende regar? (opcional)</label>
+            <input type="text" id="d-conta" name="o_que_rega" placeholder="Ex.: as orquídeas da minha avó, uma horta de temperos…" />
+
+            <button class="cta-btn" type="submit">Enviar detalhes</button>
+            <button type="button" class="p2-skip" id="p2-skip">Agora não, obrigado</button>
+            <p id="det-status" role="status"></p>
+          </form>
+        </div>
+
+        <!-- Estado final -->
+        <div id="passo3" hidden>
+          <div class="p2-ok">
+            <span class="p2-check">✓</span>
+            <div>
+              <strong>Tudo certo. Obrigado!</strong>
+              <span>Entramos em contato quando o primeiro lote abrir.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -395,15 +474,36 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
 
-/* Lista de espera */
+/* Lista de espera — duas etapas */
 (function () {
-  const form = document.getElementById('contact-form');
+  const form   = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
+  const nota   = document.getElementById('form-nota');
+  const passo2 = document.getElementById('passo2');
+  const passo3 = document.getElementById('passo3');
+  const det    = document.getElementById('detalhes-form');
+  const detSt  = document.getElementById('det-status');
 
+  function mostrarPasso2(nome, email) {
+    form.hidden = true;
+    if (nota) nota.hidden = true;
+    document.getElementById('d-email').value = email || '';
+    document.getElementById('d-nome').value  = nome  || '';
+    passo2.hidden = false;
+    passo2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function mostrarFinal() {
+    passo2.hidden = true;
+    passo3.hidden = false;
+    passo3.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ---- Passo 1: cadastro ----
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = (document.getElementById('email')?.value || '').trim();
+    const nome     = (document.getElementById('nome')?.value || '').trim();
+    const email    = (document.getElementById('email')?.value || '').trim();
     const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
 
     if (!email && !whatsapp) {
@@ -411,14 +511,16 @@
       status.style.color = '#f06a00';
       return;
     }
-    const data = new FormData(form);
+    status.textContent = 'Enviando…';
+    status.style.color = '#3f6270';
+
     try {
-      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      const res = await fetch(form.action, {
+        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+      });
       if (res.ok) {
-        form.reset();
-        status.textContent = 'Você está na lista do primeiro lote ✓';
-        status.style.color = '#00adc3';
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist_home' });
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist_step1' });
+        mostrarPasso2(nome, email || whatsapp);
       } else {
         status.textContent = 'Houve um problema ao enviar. Tente novamente.';
         status.style.color = '#f06a00';
@@ -427,6 +529,36 @@
       status.textContent = 'Erro de conexão. Verifique sua internet.';
       status.style.color = '#f06a00';
     }
+  });
+
+  // ---- Passo 2: detalhes do kit (opcional) ----
+  if (det) {
+    det.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      detSt.textContent = 'Enviando…';
+      detSt.style.color = '#3f6270';
+      try {
+        const res = await fetch(det.action, {
+          method: 'POST', body: new FormData(det), headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          if (typeof gtag === 'function') gtag('event', 'waitlist_details_sent');
+          mostrarFinal();
+        } else {
+          detSt.textContent = 'Não conseguimos enviar os detalhes — mas sua vaga está garantida.';
+          detSt.style.color = '#f06a00';
+        }
+      } catch {
+        detSt.textContent = 'Erro de conexão — mas sua vaga já está garantida.';
+        detSt.style.color = '#f06a00';
+      }
+    });
+  }
+
+  const skip = document.getElementById('p2-skip');
+  if (skip) skip.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'waitlist_details_skipped');
+    mostrarFinal();
   });
 })();
 
