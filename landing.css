@@ -401,7 +401,7 @@ footer a { color: var(--teal-vivo); }
 .led.ok    { background: #27c093; box-shadow: 0 0 12px #27c093, 0 0 0 4px rgba(39,192,147,.15); }
 .led.chuva { background: #1f8fc4; box-shadow: 0 0 12px #1f8fc4, 0 0 0 4px rgba(31,143,196,.15); }
 .led.agua  { background: #e23b3b; box-shadow: 0 0 12px #e23b3b, 0 0 0 4px rgba(226,59,59,.15); animation-duration: .8s; }
-.led.luz   { background: #f0a020; box-shadow: 0 0 12px #f0a020, 0 0 0 4px rgba(240,160,32,.15); }
+.led.luz   { background: #e23b3b; box-shadow: 0 0 12px #e23b3b, 0 0 0 4px rgba(226,59,59,.15); }
 @keyframes led-pulse { 0%,100% { opacity: .55 } 50% { opacity: 1 } }
 @media (prefers-reduced-motion: reduce) { .led { animation: none; } }
 .led-nota { margin-top: 20px; color: var(--ink-suave); font-style: italic; }
