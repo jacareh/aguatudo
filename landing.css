@@ -543,3 +543,9 @@ footer a { color: var(--teal-vivo); }
   text-wrap: balance;
 }
 .hero .lead { font-size: clamp(15px, 2vw, 17px); color: var(--ink-suave); }
+
+/* frase de destaque em cada passo do Como funciona */
+.passo-destaque {
+  font-family: "Sora", sans-serif; font-weight: 600;
+  color: var(--teal-escuro); margin: 0 0 4px !important;
+}
