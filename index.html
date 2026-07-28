@@ -256,40 +256,38 @@
       </p>
 
       <div class="form-card">
-        <!-- PASSO 1 — cadastro (mínimo) -->
         <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
           <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" autocomplete="name" required />
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" autocomplete="email" />
-          <label for="whatsapp">WhatsApp (opcional)</label>
-          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
-          <button class="cta-btn" type="submit">Entrar na lista do primeiro lote</button>
-          <p id="form-status" role="status"></p>
-        </form>
-        <p class="cta-sub" id="form-nota">Sem spam. Um aviso quando o lote abrir, e só.</p>
 
-        <!-- PASSO 2 — detalhes do kit (opcional, aparece após o passo 1) -->
-        <div id="passo2" hidden>
-          <div class="p2-ok">
-            <span class="p2-check">✓</span>
-            <div>
-              <strong>Pronto, você está na lista.</strong>
-              <span>Sua vaga está garantida por ordem de chegada.</span>
-            </div>
+          <!-- PASSO 1 — cadastro (mínimo) -->
+          <div id="passo1">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required />
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" />
+            <label for="whatsapp">WhatsApp (opcional)</label>
+            <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
+            <button type="button" class="cta-btn" id="btn-passo1">Entrar na lista do primeiro lote</button>
+            <p id="form-status" role="status"></p>
+            <p class="cta-sub" id="form-nota">Sem spam. Um aviso quando o lote abrir, e só.</p>
           </div>
 
-          <p class="p2-intro">
-            <strong>Quer nos ajudar a preparar o seu kit?</strong><br>
-            Trinta segundos. Assim já separamos os engates e o comprimento certo
-            para a sua instalação — e você recebe pronto para conectar.
-          </p>
+          <!-- PASSO 2 — detalhes do kit (opcional, mesmo formulário) -->
+          <div id="passo2" hidden>
+            <div class="p2-ok">
+              <span class="p2-check">✓</span>
+              <div>
+                <strong>Quase lá — falta só enviar.</strong>
+                <span>Toque em enviar abaixo para garantir sua vaga.</span>
+              </div>
+            </div>
 
-          <form id="detalhes-form" action="https://formspree.io/f/xgvydwdb" method="POST">
-            <input type="hidden" name="_subject" value="Detalhes do kit — lista 1º lote" />
-            <input type="hidden" id="d-email" name="email_ref" />
-            <input type="hidden" id="d-nome" name="nome_ref" />
+            <p class="p2-intro">
+              <strong>Quer nos ajudar a preparar o seu kit?</strong><br>
+              Trinta segundos. Assim já separamos os engates e o comprimento certo
+              para a sua instalação — e você recebe pronto para conectar.
+              <em>(Opcional — pode enviar direto.)</em>
+            </p>
 
             <label for="d-local">Onde o Aguatudo vai trabalhar?</label>
             <select id="d-local" name="tipo_instalacao">
@@ -329,19 +327,19 @@
             <label for="d-conta">Quer contar o que pretende regar? (opcional)</label>
             <input type="text" id="d-conta" name="o_que_rega" placeholder="Ex.: as orquídeas da minha avó, uma horta de temperos…" />
 
-            <button class="cta-btn" type="submit">Enviar detalhes</button>
-            <button type="button" class="p2-skip" id="p2-skip">Agora não, obrigado</button>
+            <button type="submit" class="cta-btn">Enviar e garantir minha vaga</button>
+            <button type="button" class="p2-skip" id="p2-skip">Enviar sem os detalhes</button>
             <p id="det-status" role="status"></p>
-          </form>
-        </div>
+          </div>
+        </form>
 
         <!-- Estado final -->
         <div id="passo3" hidden>
           <div class="p2-ok">
             <span class="p2-check">✓</span>
             <div>
-              <strong>Tudo certo. Obrigado!</strong>
-              <span>Entramos em contato quando o primeiro lote abrir.</span>
+              <strong>Você está na lista do primeiro lote!</strong>
+              <span>Entramos em contato quando o lote abrir.</span>
             </div>
           </div>
         </div>
@@ -474,91 +472,70 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
 
-/* Lista de espera — duas etapas */
+/* Lista de espera — duas telas, UM envio só (economiza submissões) */
 (function () {
   const form   = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
-  const nota   = document.getElementById('form-nota');
+  const passo1 = document.getElementById('passo1');
   const passo2 = document.getElementById('passo2');
   const passo3 = document.getElementById('passo3');
-  const det    = document.getElementById('detalhes-form');
   const detSt  = document.getElementById('det-status');
+  const btn1   = document.getElementById('btn-passo1');
+  const skip   = document.getElementById('p2-skip');
+  let enviando = false;
 
-  function mostrarPasso2(nome, email) {
-    form.hidden = true;
-    if (nota) nota.hidden = true;
-    document.getElementById('d-email').value = email || '';
-    document.getElementById('d-nome').value  = nome  || '';
-    passo2.hidden = false;
-    passo2.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-  function mostrarFinal() {
-    passo2.hidden = true;
-    passo3.hidden = false;
-    passo3.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  // ---- Passo 1: cadastro ----
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const nome     = (document.getElementById('nome')?.value || '').trim();
+  function contatoOk() {
     const email    = (document.getElementById('email')?.value || '').trim();
     const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
-
+    const nome     = (document.getElementById('nome')?.value || '').trim();
+    if (!nome) { status.textContent = 'Por favor, informe seu nome.'; status.style.color = '#f06a00'; return false; }
     if (!email && !whatsapp) {
       status.textContent = 'Preencha pelo menos E-mail ou WhatsApp.';
-      status.style.color = '#f06a00';
-      return;
+      status.style.color = '#f06a00'; return false;
     }
-    status.textContent = 'Enviando…';
-    status.style.color = '#3f6270';
+    return true;
+  }
 
+  // Passo 1: só valida e revela o passo 2 — NÃO envia ainda.
+  btn1.addEventListener('click', () => {
+    if (!contatoOk()) return;
+    passo1.hidden = true;
+    passo2.hidden = false;
+    if (typeof gtag === 'function') gtag('event', 'waitlist_step1_ok');
+    passo2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // Envio único (com ou sem detalhes) — dispara no submit do form.
+  async function enviar(label) {
+    if (enviando) return;
+    enviando = true;
+    detSt.textContent = 'Enviando…'; detSt.style.color = '#3f6270';
     try {
       const res = await fetch(form.action, {
         method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist_step1' });
-        mostrarPasso2(nome, email || whatsapp);
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_label: label });
+        }
+        passo2.hidden = true;
+        passo3.hidden = false;
+        passo3.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        status.textContent = 'Houve um problema ao enviar. Tente novamente.';
-        status.style.color = '#f06a00';
+        detSt.textContent = 'Houve um problema ao enviar. Tente novamente.';
+        detSt.style.color = '#f06a00'; enviando = false;
       }
     } catch {
-      status.textContent = 'Erro de conexão. Verifique sua internet.';
-      status.style.color = '#f06a00';
+      detSt.textContent = 'Erro de conexão. Verifique sua internet.';
+      detSt.style.color = '#f06a00'; enviando = false;
     }
-  });
-
-  // ---- Passo 2: detalhes do kit (opcional) ----
-  if (det) {
-    det.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      detSt.textContent = 'Enviando…';
-      detSt.style.color = '#3f6270';
-      try {
-        const res = await fetch(det.action, {
-          method: 'POST', body: new FormData(det), headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          if (typeof gtag === 'function') gtag('event', 'waitlist_details_sent');
-          mostrarFinal();
-        } else {
-          detSt.textContent = 'Não conseguimos enviar os detalhes — mas sua vaga está garantida.';
-          detSt.style.color = '#f06a00';
-        }
-      } catch {
-        detSt.textContent = 'Erro de conexão — mas sua vaga já está garantida.';
-        detSt.style.color = '#f06a00';
-      }
-    });
   }
 
-  const skip = document.getElementById('p2-skip');
+  form.addEventListener('submit', (e) => { e.preventDefault(); enviar('waitlist_completo'); });
   if (skip) skip.addEventListener('click', () => {
     if (typeof gtag === 'function') gtag('event', 'waitlist_details_skipped');
-    mostrarFinal();
+    enviar('waitlist_sem_detalhes');
   });
 })();
 
