@@ -549,3 +549,34 @@ footer a { color: var(--teal-vivo); }
   font-family: "Sora", sans-serif; font-weight: 600;
   color: var(--teal-escuro); margin: 0 0 4px !important;
 }
+
+/* ---------- Dropdown de Manual na navegação ---------- */
+.has-drop { position: relative; }
+.drop-toggle {
+  font-family: inherit; font-weight: 700; font-size: .95rem;
+  color: var(--ink); background: none; border: 0; cursor: pointer;
+  padding: 0;
+}
+.drop-toggle:hover, .drop-toggle:focus-visible { color: var(--teal); }
+.drop-menu {
+  position: absolute; top: 130%; left: 50%; transform: translateX(-50%) translateY(6px);
+  list-style: none; margin: 0; padding: 6px;
+  background: #fff; border: 1px solid rgba(18,55,66,.12);
+  border-radius: 12px; box-shadow: 0 12px 30px rgba(18,55,66,.16);
+  min-width: 190px; z-index: 30;
+  opacity: 0; visibility: hidden; transition: opacity .16s ease, transform .16s ease;
+}
+.has-drop:hover .drop-menu,
+.has-drop:focus-within .drop-menu,
+.has-drop.open .drop-menu {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.drop-menu li { margin: 0; }
+.drop-menu a {
+  display: block; padding: 10px 14px; border-radius: 8px;
+  color: var(--ink); text-decoration: none; font-weight: 600; font-size: .9rem;
+}
+.drop-menu a:hover, .drop-menu a:focus-visible { background: var(--celeste-claro); color: var(--teal-escuro); }
+@media (prefers-reduced-motion: reduce) {
+  .drop-menu { transition: none; }
+}

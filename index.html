@@ -67,7 +67,13 @@
       <li><a href="index.html">Início</a></li>
       <li><a href="nossa_historia.html">Nossa História</a></li>
       <li><a href="contato.html">Contato</a></li>
-      <li><a href="manual.pdf">Manual</a></li>
+      <li class="has-drop">
+        <button type="button" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Manual ▾</button>
+        <ul class="drop-menu">
+          <li><a href="manual.pdf" target="_blank" rel="noopener">Manual básico</a></li>
+          <li><a href="manual_tecnico.pdf" target="_blank" rel="noopener">Manual técnico</a></li>
+        </ul>
+      </li>
       <li class="spacer"></li>
       <li><a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="index-en.html">EN</a></li>
@@ -586,6 +592,25 @@
   const d = document.getElementById('pro-details');
   if (d) d.addEventListener('toggle', () => {
     if (d.open && typeof gtag === 'function') gtag('event', 'open_pro_section');
+  });
+})();
+
+/* Dropdown do Manual: hover no desktop, toque no mobile */
+(function(){
+  const drop = document.querySelector('.has-drop');
+  if (!drop) return;
+  const toggle = drop.querySelector('.drop-toggle');
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const open = drop.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // Fecha ao clicar fora ou apertar Esc
+  document.addEventListener('click', (e) => {
+    if (!drop.contains(e.target)) { drop.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { drop.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
   });
 })();
 </script>
