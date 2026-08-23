@@ -615,3 +615,15 @@ footer a { color: var(--teal-vivo); }
   margin-top: 8px; text-align: center; font-size: .85rem;
   font-weight: 600; color: var(--ink-suave);
 }
+
+/* ---------- Logomarca ---------- */
+.nav-logo { display: flex; align-items: center; margin-right: 6px; }
+.nav-logo a { display: block; line-height: 0; }
+.nav-logo img { height: 26px; width: auto; display: block; }
+@media (max-width: 620px) { .nav-logo img { height: 22px; } }
+
+.footer-logo {
+  height: 30px; width: auto; display: block; margin: 0 auto 14px;
+  filter: brightness(0) invert(1); opacity: .85;
+}
+footer p { margin: 0; }
