@@ -377,6 +377,12 @@
       <div class="form-card">
         <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
           <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
+          <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
+               silenciosamente qualquer envio em que este campo venha preenchido. -->
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Não preencha este campo</label>
+            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
 
           <!-- PASSO 1 — cadastro (mínimo) -->
           <div id="passo1">
@@ -445,6 +451,12 @@
 
             <label for="d-conta">Quer contar o que pretende regar? (opcional)</label>
             <input type="text" id="d-conta" name="o_que_rega" placeholder="Ex.: as orquídeas da minha avó, uma horta de temperos…" />
+
+            <label class="humano" for="chk-humano">
+              <input type="checkbox" id="chk-humano" />
+              <span>Confirmo que sou uma pessoa de verdade 🌱</span>
+            </label>
+            <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
 
             <button type="submit" class="cta-btn">Enviar e garantir minha vaga</button>
             <button type="button" class="p2-skip" id="p2-skip">Enviar sem os detalhes</button>
@@ -627,8 +639,27 @@
   });
 
   // Envio único (com ou sem detalhes) — dispara no submit do form.
+  const tInicio = Date.now();           // trava de tempo: robôs enviam em <2s
   async function enviar(label) {
     if (enviando) return;
+
+    // 1) Verificação humana visível
+    const chk = document.getElementById('chk-humano');
+    const erroHumano = document.getElementById('humano-erro');
+    if (chk && !chk.checked) {
+      erroHumano.hidden = false;
+      chk.focus();
+      return;
+    }
+    if (erroHumano) erroHumano.hidden = true;
+
+    // 2) Trava de tempo — preenchimento humano leva mais que alguns segundos
+    if (Date.now() - tInicio < 3000) {
+      detSt.textContent = 'Aguarde um instante e tente novamente.';
+      detSt.style.color = '#f06a00';
+      return;
+    }
+
     enviando = true;
     detSt.textContent = 'Enviando…'; detSt.style.color = '#3f6270';
     try {
