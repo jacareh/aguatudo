@@ -681,3 +681,24 @@ footer p { margin: 0; }
 .humano-erro {
   margin: 4px 0 0; color: #f06a00; font-size: .88rem; font-weight: 600;
 }
+
+/* ---------- Selo empresa-filha Unicamp ----------
+   Regras do manual de uso (Inova Unicamp):
+   • largura mínima digital: 100px  → usamos 200px
+   • área de reserva: 1/3 da altura do selo em todos os lados
+     (altura exibida ≈ 88px → reserva ≈ 30px; usamos 34px)
+   • fundo escuro → versão com linha de borda
+   • proibido girar, distorcer, recolorir ou adaptar
+------------------------------------------------- */
+.selo-area {
+  margin: 34px auto 0;          /* área de reserva superior */
+  padding: 0 34px 6px;          /* área de reserva lateral  */
+  display: flex; justify-content: center;
+}
+.selo-unicamp {
+  width: 200px; height: auto; display: block;
+}
+@media (max-width: 480px) {
+  .selo-unicamp { width: 160px; }
+  .selo-area { margin-top: 28px; padding: 0 28px 6px; }
+}
