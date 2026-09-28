@@ -3,55 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Aguatudo</title>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <title>Contact — Aguatudo</title>
+  <meta name="description" content="Get in touch with Aguatudo by email or WhatsApp — the irrigation controller that senses the rain in your own garden." />
+  <link rel="canonical" href="https://www.aguatudo.com.br/contact-en.html" />
 
-  gtag('config', 'G-27Q59PLKST');
-</script>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-27Q59PLKST');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="landing.css" />
 </head>
+
 <body>
 <header>
   <nav>
     <ul>
-      <li><a href="index-en.html">Home</a></li>
+      <li class="nav-logo"><a href="index-en.html" aria-label="Aguatudo — home"><img src="logo_aguatudo.png" alt="Aguatudo" /></a></li>
       <li><a href="history-en.html">Our Story</a></li>
-      <li><a href="contact-en.html">Contact</a></li>
+      <li><a href="contact-en.html" aria-current="page">Contact</a></li>
       <li class="spacer"></li>
-      <li><a class="social" href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="contato.html">PT</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <div class="form-container">
-    <h2>Get in Touch</h2>
-    <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" />
+  <section class="contato">
+    <div class="wrap">
+      <p class="eyebrow">contact</p>
+      <h2>Get in touch.</h2>
+      <p class="lead">
+        Questions about the product, which version suits your plants, or your
+        setup? Pick the channel you prefer — a real person will answer.
+      </p>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" />
+      <div class="canais">
+        <!-- ⬜ Replace 5519995309944 with the number: country + area code, digits only -->
+        <a class="canal canal-whats"
+           href="https://wa.me/5519995309944?text=Hi!%20I%20found%20Aguatudo%20through%20the%20website."
+           target="_blank" rel="noopener" data-canal="whatsapp">
+          <span class="canal-ico" aria-hidden="true">💬</span>
+          <span class="canal-txt">
+            <strong>WhatsApp</strong>
+            <span>Fastest reply</span>
+          </span>
+        </a>
 
-      <label for="whatsapp">WhatsApp</label>
-      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+55 19 99999-9999" />
+        <a class="canal canal-mail"
+           href="mailto:contato@aguatudo.com.br?subject=Contact%20from%20the%20Aguatudo%20website"
+           data-canal="email">
+          <span class="canal-ico" aria-hidden="true">✉️</span>
+          <span class="canal-txt">
+            <strong>Email</strong>
+            <span>contato@aguatudo.com.br</span>
+          </span>
+        </a>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5"></textarea>
+        <a class="canal canal-insta"
+           href="https://instagram.com/aguatudobrasil"
+           target="_blank" rel="noopener" data-canal="instagram">
+          <span class="canal-ico" aria-hidden="true">📷</span>
+          <span class="canal-txt">
+            <strong>Instagram</strong>
+            <span>@aguatudobrasil</span>
+          </span>
+        </a>
+      </div>
 
-      <button type="submit">Send</button>
-    </form>
-    <p id="form-status"></p>
-  </div>
+      <div class="contato-lista">
+        <p><strong>Where can I buy it?</strong>
+        Aguatudo will be sold in Brazil only, through Mercado Livre. The first
+        batch — 90 units — is planned for October/November 2026, and the
+        waitlist is on our Portuguese homepage.</p>
+        <a class="cta-btn" href="index.html#lista">Join the waitlist (in Portuguese)</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer>© 2026 Aguatudo. All rights reserved.</footer>
-<script src="form-handler.js" defer></script>
+<footer>
+  <img class="footer-logo" src="logo_aguatudo.png" alt="Aguatudo" />
+  <p>© 2026 Aguatudo · <a href="mailto:contato@aguatudo.com.br">contato@aguatudo.com.br</a></p>
+  <div class="selo-area">
+    <img class="selo-unicamp" src="selo_unicamp_borda.png"
+         alt="Unicamp spin-off company seal" loading="lazy" decoding="async" />
+  </div>
+</footer>
+
+<script>
+/* Analytics: which contact channel people choose */
+document.querySelectorAll('[data-canal]').forEach(a => {
+  a.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'contact_click', { canal: a.dataset.canal });
+  });
+});
+</script>
 </body>
 </html>
