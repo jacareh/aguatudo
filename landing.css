@@ -702,3 +702,31 @@ footer p { margin: 0; }
   .selo-unicamp { width: 160px; }
   .selo-area { margin-top: 28px; padding: 0 28px 6px; }
 }
+
+/* ---------- Página de contato (sem formulário) ---------- */
+.contato { min-height: 60vh; }
+.canais {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px;
+}
+@media (max-width: 760px) { .canais { grid-template-columns: 1fr; } }
+.canal {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--cartao); border: 1px solid rgba(18,55,66,.12);
+  border-radius: var(--raio); padding: 20px; box-shadow: var(--sombra);
+  text-decoration: none; color: var(--ink);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.canal:hover, .canal:focus-visible { transform: translateY(-2px); border-color: var(--teal); }
+.canal-whats { border: 2px solid var(--teal); }
+.canal-ico { font-size: 1.8rem; line-height: 1; flex: none; }
+.canal-txt { display: flex; flex-direction: column; min-width: 0; }
+.canal-txt strong { font-family: "Sora", sans-serif; font-size: 1.05rem; }
+.canal-txt span { font-size: .88rem; color: var(--ink-suave); overflow-wrap: anywhere; }
+.contato-lista {
+  margin-top: 36px; padding: 26px; border-radius: var(--raio);
+  background: var(--cartao); border-left: 5px solid var(--teal);
+  box-shadow: var(--sombra); max-width: 52rem;
+}
+.contato-lista p { margin: 0 0 16px; color: var(--ink-suave); }
+.contato-lista strong { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .canal { transition: none; } }
