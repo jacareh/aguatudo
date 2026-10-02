@@ -730,3 +730,9 @@ footer p { margin: 0; }
 .contato-lista p { margin: 0 0 16px; color: var(--ink-suave); }
 .contato-lista strong { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .canal { transition: none; } }
+
+/* nota curta sob um campo do formulário */
+.campo-nota {
+  margin: 6px 0 0; font-size: .85rem; color: var(--ink-suave);
+  text-align: left; font-style: italic;
+}

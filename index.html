@@ -385,84 +385,25 @@
             <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
           </div>
 
-          <!-- PASSO 1 — cadastro (mínimo) -->
-          <div id="passo1">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" autocomplete="name" required />
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" autocomplete="email" />
-            <label for="whatsapp">WhatsApp (opcional)</label>
-            <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
-            <button type="button" class="cta-btn" id="btn-passo1">Entrar na lista do primeiro lote</button>
-            <p id="form-status" role="status"></p>
-            <p class="cta-sub" id="form-nota">Sem spam. Uma confirmação agora e um aviso quando o lote abrir.</p>
-          </div>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required />
 
-          <!-- PASSO 2 — detalhes do kit (opcional, mesmo formulário) -->
-          <div id="passo2" hidden>
-            <div class="p2-ok">
-              <span class="p2-check">✓</span>
-              <div>
-                <strong>Quase lá — falta só enviar.</strong>
-                <span>Toque em enviar abaixo para garantir sua vaga.</span>
-              </div>
-            </div>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
 
-            <p class="p2-intro">
-              <strong>Quer nos ajudar a preparar o seu kit?</strong><br>
-              Trinta segundos. Assim já separamos os engates e o comprimento certo
-              para a sua instalação — e você recebe pronto para conectar.
-              <em>(Opcional — pode enviar direto.)</em>
-            </p>
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
+          <p class="campo-nota">É por aqui que avisamos quando o lote abrir.</p>
 
-            <label for="d-local">Onde o Aguatudo vai trabalhar?</label>
-            <select id="d-local" name="tipo_instalacao">
-              <option value="">Selecione…</option>
-              <option>Varanda / vasos na janela</option>
-              <option>Apartamento (jardineiras)</option>
-              <option>Jardim pequeno</option>
-              <option>Jardim médio</option>
-              <option>Jardim grande / gramado</option>
-              <option>Horta</option>
-              <option>Pomar</option>
-              <option>Orquidário / plantas especiais</option>
-              <option>Irrigação profissional / produção</option>
-              <option>É presente para alguém</option>
-              <option>Prefiro não dizer</option>
-            </select>
+          <label class="humano" for="chk-humano">
+            <input type="checkbox" id="chk-humano" />
+            <span>Confirmo que sou uma pessoa de verdade 🌱</span>
+          </label>
+          <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
 
-            <label for="d-existe">Já existe alguma instalação de irrigação?</label>
-            <select id="d-existe" name="instalacao_existente">
-              <option value="">Selecione…</option>
-              <option>Já tenho mangueira/aspersores — só quero acoplar o Aguatudo</option>
-              <option>Vou montar do zero — quero o kit completo</option>
-              <option>Ainda não sei</option>
-            </select>
-
-            <label for="d-regiao">Região do Brasil</label>
-            <select id="d-regiao" name="regiao">
-              <option value="">Selecione…</option>
-              <option>Norte</option>
-              <option>Nordeste</option>
-              <option>Centro-Oeste</option>
-              <option>Sudeste</option>
-              <option>Sul</option>
-              <option>Fora do Brasil</option>
-            </select>
-
-            <label for="d-conta">Quer contar o que pretende regar? (opcional)</label>
-            <input type="text" id="d-conta" name="o_que_rega" placeholder="Ex.: as orquídeas da minha avó, uma horta de temperos…" />
-
-            <label class="humano" for="chk-humano">
-              <input type="checkbox" id="chk-humano" />
-              <span>Confirmo que sou uma pessoa de verdade 🌱</span>
-            </label>
-            <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
-
-            <button type="submit" class="cta-btn">Enviar e garantir minha vaga</button>
-            <button type="button" class="p2-skip" id="p2-skip">Enviar sem os detalhes</button>
-            <p id="det-status" role="status"></p>
-          </div>
+          <button type="submit" class="cta-btn">Entrar na lista do primeiro lote</button>
+          <p id="form-status" role="status"></p>
+          <p class="cta-sub" id="form-nota">Sem spam. Uma confirmação agora e um aviso quando o lote abrir.</p>
         </form>
 
         <!-- Estado final -->
@@ -610,89 +551,63 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
 
-/* Lista de espera — duas telas, UM envio só (economiza submissões) */
+/* Lista de espera — tela única, um envio só */
 (function () {
   const form   = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
-  const passo1 = document.getElementById('passo1');
-  const passo2 = document.getElementById('passo2');
-  const passo3 = document.getElementById('passo3');
-  const detSt  = document.getElementById('det-status');
-  const btn1   = document.getElementById('btn-passo1');
-  const skip   = document.getElementById('p2-skip');
+  const chk    = document.getElementById('chk-humano');
+  const erroHumano = document.getElementById('humano-erro');
+  const cartao = document.querySelector('.form-card');
+  const sucesso = document.getElementById('passo3');
+  const tCarga = Date.now();       // momento em que a página carregou
+  let tPrimeiroToque = null;       // momento do primeiro contato com o formulário
+  form.addEventListener('input', () => {
+    if (tPrimeiroToque === null) tPrimeiroToque = Date.now();
+  }, { once: false });
   let enviando = false;
 
-  function contatoOk() {
-    const email    = (document.getElementById('email')?.value || '').trim();
-    const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
-    const nome     = (document.getElementById('nome')?.value || '').trim();
-    if (!nome) { status.textContent = 'Por favor, informe seu nome.'; status.style.color = '#f06a00'; return false; }
-    if (!email && !whatsapp) {
-      status.textContent = 'Preencha pelo menos E-mail ou WhatsApp.';
-      status.style.color = '#f06a00'; return false;
-    }
-    return true;
-  }
+  function aviso(txt) { status.textContent = txt; status.style.color = '#f06a00'; }
 
-  // Passo 1: só valida e revela o passo 2 — NÃO envia ainda.
-  btn1.addEventListener('click', () => {
-    if (!contatoOk()) return;
-    passo1.hidden = true;
-    passo2.hidden = false;
-    if (typeof gtag === 'function') gtag('event', 'waitlist_step1_ok');
-    passo2.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-
-  // Envio único (com ou sem detalhes) — dispara no submit do form.
-  const tInicio = Date.now();           // trava de tempo: robôs enviam em <2s
-  async function enviar(label) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     if (enviando) return;
 
-    // 1) Verificação humana visível
-    const chk = document.getElementById('chk-humano');
-    const erroHumano = document.getElementById('humano-erro');
-    if (chk && !chk.checked) {
-      erroHumano.hidden = false;
-      chk.focus();
-      return;
-    }
+    const nome     = (document.getElementById('nome')?.value || '').trim();
+    const email    = (document.getElementById('email')?.value || '').trim();
+    const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
+
+    if (!nome) { aviso('Por favor, informe seu nome.'); return; }
+    if (!email && !whatsapp) { aviso('Preencha pelo menos E-mail ou WhatsApp.'); return; }
+
+    if (chk && !chk.checked) { erroHumano.hidden = false; chk.focus(); return; }
     if (erroHumano) erroHumano.hidden = true;
 
-    // 2) Trava de tempo — preenchimento humano leva mais que alguns segundos
-    if (Date.now() - tInicio < 3000) {
-      detSt.textContent = 'Aguarde um instante e tente novamente.';
-      detSt.style.color = '#f06a00';
-      return;
+    // Trava de tempo: robôs preenchem e enviam quase instantaneamente.
+    const agora = Date.now();
+    if (agora - tCarga < 3000 || tPrimeiroToque === null || agora - tPrimeiroToque < 1500) {
+      aviso('Aguarde um instante e tente novamente.'); return;
     }
 
     enviando = true;
-    detSt.textContent = 'Enviando…'; detSt.style.color = '#3f6270';
+    status.textContent = 'Enviando…'; status.style.color = '#3f6270';
     try {
       const res = await fetch(form.action, {
         method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', { event_label: label });
-        }
-        passo2.hidden = true;
-        passo3.hidden = false;
-        passo3.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist' });
+        form.hidden = true;
+        const nota = document.getElementById('form-nota');
+        if (nota) nota.hidden = true;
+        sucesso.hidden = false;
+        sucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        detSt.textContent = 'Houve um problema ao enviar. Tente novamente.';
-        detSt.style.color = '#f06a00'; enviando = false;
+        aviso('Houve um problema ao enviar. Tente novamente.'); enviando = false;
       }
     } catch {
-      detSt.textContent = 'Erro de conexão. Verifique sua internet.';
-      detSt.style.color = '#f06a00'; enviando = false;
+      aviso('Erro de conexão. Verifique sua internet.'); enviando = false;
     }
-  }
-
-  form.addEventListener('submit', (e) => { e.preventDefault(); enviar('waitlist_completo'); });
-  if (skip) skip.addEventListener('click', () => {
-    if (typeof gtag === 'function') gtag('event', 'waitlist_details_skipped');
-    enviar('waitlist_sem_detalhes');
   });
 })();
 
