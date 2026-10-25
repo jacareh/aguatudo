@@ -736,3 +736,72 @@ footer p { margin: 0; }
   margin: 6px 0 0; font-size: .85rem; color: var(--ink-suave);
   text-align: left; font-style: italic;
 }
+
+/* ============================================================
+   Rodada de conversão — out/2026
+   ============================================================ */
+
+/* Cabeçalho compacto no celular: só logo + "Reservar o meu".
+   Os links secundários vão para o rodapé. */
+@media (max-width: 720px) {
+  nav .nav-sec { display: none; }
+  nav ul { flex-wrap: nowrap; justify-content: space-between; padding: 10px 16px; gap: 12px; }
+  nav .nav-cta { padding: 8px 14px; font-size: .9rem; white-space: nowrap; }
+  .hero { padding: 40px 0 64px; }
+  .chuva-selo { font-size: .72rem; padding: 6px 14px; margin-bottom: 20px; }
+}
+
+/* Selo do prêmio no hero */
+.selo-premio {
+  display: inline-block; margin: 14px auto 0; padding: 6px 14px;
+  font-size: .82rem; font-weight: 700; color: #7a5312;
+  background: #fff6e6; border: 1px solid #e8c378; border-radius: 999px;
+}
+.hero .cta-sub strong { color: var(--ink); }
+
+/* O que se escolhe na compra */
+.na-compra {
+  margin-top: 26px; padding: 22px 24px; border-radius: var(--raio);
+  background: var(--cartao); border: 2px solid var(--teal);
+  box-shadow: var(--sombra);
+}
+.na-compra h3 { margin: 0 0 12px; font-size: 1.1rem; }
+.na-compra ul { margin: 0; padding-left: 20px; }
+.na-compra li { margin-bottom: 8px; color: var(--ink-suave); }
+.na-compra li strong { color: var(--ink); }
+.na-compra-nota { margin: 12px 0 0; font-size: .92rem; color: var(--ink-suave); }
+.na-compra-nota a { color: var(--teal-escuro); font-weight: 700; }
+
+/* Faixa de confiança */
+.confianca {
+  list-style: none; padding: 0; margin: 18px 0 0;
+  display: flex; flex-wrap: wrap; gap: 10px 22px;
+}
+.confianca li { font-weight: 700; font-size: .95rem; color: var(--ink); }
+.confianca a { color: var(--teal-escuro); }
+
+/* Links no rodapé */
+.footer-links {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+  margin: 0 auto 14px; max-width: 640px;
+}
+.footer-links a { color: #cdeef2; text-decoration: none; font-size: .9rem; }
+.footer-links a:hover, .footer-links a:focus-visible { color: #fff; text-decoration: underline; }
+
+/* WhatsApp flutuante */
+.wa-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 40;
+  display: flex; align-items: center; gap: 8px;
+  background: #25d366; color: #fff; text-decoration: none;
+  font-weight: 700; font-size: .95rem;
+  padding: 12px 18px 12px 14px; border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.22);
+}
+.wa-float svg { width: 26px; height: 26px; flex: none; }
+.wa-float:hover, .wa-float:focus-visible { background: #1ebe5b; }
+@media (max-width: 520px) {
+  .wa-float { padding: 12px; }
+  .wa-float span { display: none; }
+}
+/* não cobrir o formulário nem o rodapé no fim da página */
+footer { padding-bottom: 84px; }

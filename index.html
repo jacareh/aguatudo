@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aguatudo — O irrigador que sente a chuva no seu quintal</title>
-  <meta name="description" content="Grave a rega com um botão. Ele sente a chuva no seu quintal e economiza a água que você pagaria. Sem app, sem nuvem. Lista do primeiro lote: outubro/novembro de 2026." />
+  <meta name="description" content="Grave a rega com um botão. Ele sente a chuva no seu quintal e economiza a água que você pagaria. Sem app, sem nuvem. A partir de R$ 450, primeiras unidades a partir de 23 de novembro de 2026." />
 
   <link rel="canonical" href="https://www.aguatudo.com.br/" />
 
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aguatudo" />
   <meta property="og:title" content="Aguatudo — o irrigador que sente a chuva no seu quintal" />
-  <meta property="og:description" content="Grave a rega com um botão. Ele repete todo dia e poupa a água quando chove. Sem app, sem nuvem. Entre na lista do primeiro lote." />
+  <meta property="og:description" content="Grave a rega com um botão. Ele repete todo dia e poupa a água quando chove. Sem app, sem nuvem. Primeiras unidades a partir de 23/11 — reserve o seu." />
   <meta property="og:url" content="https://www.aguatudo.com.br/" />
   <meta property="og:image" content="https://www.aguatudo.com.br/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -36,10 +36,13 @@
     "image": "https://www.aguatudo.com.br/og-image.jpg",
     "url": "https://www.aguatudo.com.br/",
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "priceCurrency": "BRL",
-      "price": "450",
+      "lowPrice": "450",
+      "highPrice": "500",
+      "offerCount": "2",
       "availability": "https://schema.org/PreOrder",
+      "availabilityStarts": "2026-11-23",
       "url": "https://www.aguatudo.com.br/#lista"
     }
   }
@@ -67,19 +70,19 @@
   <nav>
     <ul>
       <li class="nav-logo"><a href="index.html" aria-label="Aguatudo — início"><img src="logo_aguatudo.png" alt="Aguatudo" /></a></li>
-      <li><a href="nossa_historia.html">Nossa História</a></li>
-      <li><a href="contato.html">Contato</a></li>
-      <li class="has-drop">
+      <li class="nav-sec"><a href="nossa_historia.html">Nossa História</a></li>
+      <li class="nav-sec"><a href="contato.html">Contato</a></li>
+      <li class="has-drop nav-sec">
         <button type="button" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Manual ▾</button>
         <ul class="drop-menu">
-          <li><a href="manual.pdf" target="_blank" rel="noopener">Manual básico</a></li>
-          <li><a href="manual_tecnico.pdf" target="_blank" rel="noopener">Manual técnico</a></li>
+          <li><a href="manual.pdf" target="_blank" rel="noopener">Manual de uso</a></li>
+          <li><a href="manual_tecnico.pdf" target="_blank" rel="noopener">Manual para especialistas</a></li>
         </ul>
       </li>
       <li class="spacer"></li>
-      <li><a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="index-en.html">EN</a></li>
-      <li><a class="nav-cta" href="#lista">Lista do 1º lote</a></li>
+      <li class="nav-sec"><a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a></li>
+      <li class="nav-sec"><a href="index-en.html">EN</a></li>
+      <li><a class="nav-cta" href="#lista">Reservar o meu</a></li>
     </ul>
   </nav>
 </header>
@@ -109,8 +112,9 @@
       <p class="lead">
         Sem app, sem nuvem, sem conta. Só uma torneira e uma tomada.
       </p>
-      <a class="cta-btn" href="#lista" id="cta-hero">Quero o meu no primeiro lote</a>
-      <p class="cta-sub">90 unidades · outubro/novembro de 2026</p>
+      <a class="cta-btn" href="#lista" id="cta-hero">Quero reservar o meu</a>
+      <p class="cta-sub"><strong>A partir de R$ 450</strong> · primeiras 100 unidades a partir de 23/11</p>
+      <p class="selo-premio">🏆 1º lugar · Prêmio Automação GS1 Brasil 2026 · Empreendedorismo</p>
 
       <ul class="hero-bullets">
         <li>🌧️ Sente a chuva de verdade</li>
@@ -121,7 +125,7 @@
     </div>
   </section>
 
-  <!-- ============ 2 · A DOR + PROMESSA (fundidas) ============ -->
+<!-- ============ 2 · A DOR + PROMESSA (fundidas) ============ -->
   <section class="dor">
     <div class="wrap">
       <p class="eyebrow">o problema</p>
@@ -147,7 +151,7 @@
     </div>
   </section>
 
-  <!-- ============ 3 · COMO FUNCIONA ============ -->
+<!-- ============ 3 · COMO FUNCIONA ============ -->
   <section class="como">
     <div class="wrap">
       <p class="eyebrow">simples assim</p>
@@ -203,16 +207,142 @@
     </div>
   </section>
 
-  <!-- ============ 4 · CTA INTERMEDIÁRIO ============ -->
-  <section class="cta-meio">
-    <div class="wrap">
-      <p>Já é o que você procurava?</p>
-      <a class="cta-btn" href="#lista">Entrar na lista do primeiro lote</a>
-      <p class="cta-sub">90 unidades · outubro/novembro de 2026 · sem compromisso</p>
+<!-- ============ 8 · VÍDEO ============ -->
+  <section class="video-sec">
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow">em ação, com narração</p>
+      <h2>Veja como é simples.</h2>
+      <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
+        <img src="instalado_jardineira.jpg" alt="Aguatudo instalado em jardineira de janela (vídeo)" loading="lazy" decoding="async" />
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
     </div>
   </section>
 
-  <!-- ============ 5 · A PROVA (concorrência enxuta) ============ -->
+<!-- ============ 7.5 · DUAS OPÇÕES ============ -->
+  <section class="opcoes">
+    <div class="wrap">
+      <p class="eyebrow">escolha o seu</p>
+      <h2>Duas formas de começar.</h2>
+      <p class="lead">
+        Já tem mangueira e aspersor? O Aguatudo sozinho resolve. Quer regar
+        vasos ou uma jardineira gota a gota? O Kit completo já sai pronto
+        para isso.
+      </p>
+
+      <div class="opcoes-grid">
+        <article class="opcao">
+          <img src="foto_aguatudo_solo.jpg" alt="Aguatudo solo com cabo, engate rápido, suporte e manual" loading="lazy" decoding="async" />
+          <h3>Aguatudo</h3>
+          <p class="preco-tag">R$ 450</p>
+          <p class="opcao-desc">Para quem já tem a irrigação montada e só quer
+          automatizar.</p>
+          <ul class="inclui">
+            <li>O aparelho, em alumínio e vidro</li>
+            <li>Suporte de fixação</li>
+            <li>Mangueira de entrada</li>
+            <li>Engate rápido no diâmetro da sua mangueira</li>
+            <li>Manual de instruções</li>
+          </ul>
+        </article>
+
+        <article class="opcao destaque">
+          <span class="tag-opcao">mais completo</span>
+          <img src="foto_kit.jpg" alt="Kit completo Aguatudo com microtubos, splitter, estacas de gotejamento e acessórios" loading="lazy" decoding="async" />
+          <h3>Kit completo</h3>
+          <p class="preco-tag">R$ 500</p>
+          <p class="opcao-desc">Pronto para regar até 4 vasos gota a gota,
+          direto na raiz. Dá para ampliar depois.</p>
+          <ul class="inclui">
+            <li>Tudo do Aguatudo, mais:</li>
+            <li>3 m de microtubo com equalizador de vazão</li>
+            <li>Splitter com 4 saídas</li>
+            <li>Microtubos transparentes nitrílicos</li>
+            <li>4 estacas de gotejamento</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="na-compra">
+        <h3>Na compra, você escolhe duas coisas</h3>
+        <ul>
+          <li><strong>Voltagem: 110 V ou 220 V.</strong> O Aguatudo não é bivolt —
+          escolha a mesma da tomada onde ele vai ficar.</li>
+          <li><strong>Engate da saída: de 6 a 16 mm.</strong> O diâmetro da mangueira
+          que leva a água até as plantas.</li>
+        </ul>
+        <p class="na-compra-nota">A entrada é rosca ¾", o padrão de torneira.
+        Não sabe a voltagem ou o diâmetro?
+        <a href="https://wa.me/5519995309944?text=Ol%C3%A1!%20Quero%20confirmar%20a%20voltagem%20e%20o%20engate%20certos%20para%20o%20meu%20Aguatudo." target="_blank" rel="noopener" data-wa="duvida_config">Mande uma foto
+        da tomada e da mangueira pelo WhatsApp</a> que a gente confirma.</p>
+      </div>
+
+      <ul class="confianca">
+        <li>🛡️ Garantia de 1 ano</li>
+        <li>📦 Compra e entrega pelo Mercado Livre</li>
+        <li>📘 <a href="manual.pdf" target="_blank" rel="noopener">Leia o manual antes de comprar</a></li>
+      </ul>
+      <p class="fonte">Preços de lançamento do primeiro lote.</p>
+    </div>
+  </section>
+
+<!-- ============ 9 · LISTA DE ESPERA ============ -->
+  <section class="lista" id="lista">
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow">reserve o seu</p>
+      <h2>Primeiras 100 unidades a partir de 23 de novembro.<br>Quem reserva antes, compra antes.</h2>
+      <p class="lead" style="margin:0 auto">
+        A venda é pelo Mercado Livre. Quem está na lista recebe o link de compra
+        primeiro, por ordem de chegada. <strong>Reservar não obriga a comprar.</strong>
+      </p>
+
+      <div class="form-card">
+        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
+          <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
+          <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
+               silenciosamente qualquer envio em que este campo venha preenchido. -->
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Não preencha este campo</label>
+            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
+          <p class="campo-nota">É por aqui que avisamos quando o lote abrir.</p>
+
+          <label class="humano" for="chk-humano">
+            <input type="checkbox" id="chk-humano" />
+            <span>Confirmo que sou uma pessoa de verdade 🌱</span>
+          </label>
+          <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
+
+          <button type="submit" class="cta-btn">Reservar o meu</button>
+          <p id="form-status" role="status"></p>
+          <p class="cta-sub" id="form-nota">Sem spam. Uma confirmação agora e um aviso quando o lote abrir.</p>
+        </form>
+
+        <!-- Estado final -->
+        <div id="passo3" hidden>
+          <div class="p2-ok">
+            <span class="p2-check">✓</span>
+            <div>
+              <strong>Reserva feita!</strong>
+              <span>Em breve você recebe uma mensagem confirmando. A partir de 23/11,
+              você recebe primeiro o link de compra no Mercado Livre.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============ 5 · A PROVA (concorrência enxuta) ============ -->
   <section class="mercado">
     <div class="wrap">
       <p class="eyebrow">a prova</p>
@@ -248,29 +378,7 @@
     </div>
   </section>
 
-  <!-- ============ 6 · HERANÇA (curta) ============ -->
-  <section class="heranca">
-    <div class="wrap">
-      <div class="duo">
-        <div>
-          <p class="eyebrow">nossa história</p>
-          <h2>Isso vem de longe.</h2>
-          <p class="lead">
-            Nos anos 1980, Antonio Vendramin cuidava de um orquidário com quase
-            dez mil vasos em Jundiaí. Levava água a cada um por microtubos,
-            quando ninguém no Brasil fazia isso.
-          </p>
-          <p class="lead">
-            O Aguatudo é o neto retomando a obsessão do avô.
-          </p>
-          <p><a href="nossa_historia.html"><strong>Conheça a história completa →</strong></a></p>
-        </div>
-        <img src="foto_orquidário_3.png" alt="Orquidário de Antonio Vendramin" loading="lazy" decoding="async" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 7 · ALCANCE ============ -->
+<!-- ============ 7 · ALCANCE ============ -->
   <section class="alcance">
     <div class="wrap">
       <p class="eyebrow">alcance</p>
@@ -305,123 +413,38 @@
     </div>
   </section>
 
-  <!-- ============ 7.5 · DUAS OPÇÕES ============ -->
-  <section class="opcoes">
+<!-- ============ 6 · HERANÇA (curta) ============ -->
+  <section class="heranca">
     <div class="wrap">
-      <p class="eyebrow">escolha o seu</p>
-      <h2>Duas formas de começar.</h2>
-      <p class="lead">
-        Já tem mangueira e aspersor? O Aguatudo sozinho resolve. Quer regar
-        vasos ou uma jardineira gota a gota? O Kit completo já sai pronto
-        para isso.
-      </p>
-
-      <div class="opcoes-grid">
-        <article class="opcao">
-          <img src="foto_aguatudo_solo.jpg" alt="Aguatudo solo com cabo, engate rápido, suporte e manual" loading="lazy" decoding="async" />
-          <h3>Aguatudo</h3>
-          <p class="preco-tag">R$ 450</p>
-          <p class="opcao-desc">Para quem já tem a irrigação montada e só quer
-          automatizar.</p>
-          <ul class="inclui">
-            <li>O aparelho, em alumínio e vidro</li>
-            <li>Suporte de fixação</li>
-            <li>Mangueira de entrada</li>
-            <li>Engate rápido à sua escolha</li>
-            <li>Manual de instruções</li>
-          </ul>
-        </article>
-
-        <article class="opcao destaque">
-          <span class="tag-opcao">mais completo</span>
-          <img src="foto_kit.jpg" alt="Kit completo Aguatudo com microtubos, splitter, estacas de gotejamento e acessórios" loading="lazy" decoding="async" />
-          <h3>Kit completo</h3>
-          <p class="preco-tag">R$ 500</p>
-          <p class="opcao-desc">Pronto para regar até 4 vasos gota a gota,
-          direto na raiz. Dá para ampliar depois.</p>
-          <ul class="inclui">
-            <li>Tudo do Aguatudo, mais:</li>
-            <li>3 m de microtubo com equalizador de vazão</li>
-            <li>Splitter com 4 saídas</li>
-            <li>Microtubos transparentes nitrílicos</li>
-            <li>4 estacas de gotejamento</li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="fonte">Preços de lançamento previstos para o primeiro lote.</p>
-    </div>
-  </section>
-
-  <!-- ============ 8 · VÍDEO ============ -->
-  <section class="video-sec">
-    <div class="wrap" style="text-align:center">
-      <p class="eyebrow">em ação</p>
-      <h2>Veja o Aguatudo trabalhando.</h2>
-      <button class="video-cover" id="openVideo" type="button" aria-label="Assistir vídeo do Aguatudo">
-        <img src="instalado_jardineira.jpg" alt="Aguatudo instalado em jardineira de janela (vídeo)" loading="lazy" decoding="async" />
-        <span class="video-play" aria-hidden="true"></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- ============ 9 · LISTA DE ESPERA ============ -->
-  <section class="lista" id="lista">
-    <div class="wrap" style="text-align:center">
-      <p class="eyebrow">primeiro lote</p>
-      <h2>Primeiro lote em outubro/novembro de 2026.<br>Quem chega antes, recebe antes.</h2>
-      <p class="lead" style="margin:0 auto">
-        São <strong>90 unidades</strong>. Não vamos inventar um estoque que não
-        existe — o que temos é uma lista com prioridade por ordem de chegada.
-      </p>
-
-      <div class="form-card">
-        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
-          <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
-          <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
-               silenciosamente qualquer envio em que este campo venha preenchido. -->
-          <div class="hp" aria-hidden="true">
-            <label for="_gotcha">Não preencha este campo</label>
-            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" autocomplete="name" required />
-
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" autocomplete="email" />
-
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
-          <p class="campo-nota">É por aqui que avisamos quando o lote abrir.</p>
-
-          <label class="humano" for="chk-humano">
-            <input type="checkbox" id="chk-humano" />
-            <span>Confirmo que sou uma pessoa de verdade 🌱</span>
-          </label>
-          <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
-
-          <button type="submit" class="cta-btn">Entrar na lista do primeiro lote</button>
-          <p id="form-status" role="status"></p>
-          <p class="cta-sub" id="form-nota">Sem spam. Uma confirmação agora e um aviso quando o lote abrir.</p>
-        </form>
-
-        <!-- Estado final -->
-        <div id="passo3" hidden>
-          <div class="p2-ok">
-            <span class="p2-check">✓</span>
-            <div>
-              <strong>Você está na lista do primeiro lote!</strong>
-              <span>Em breve você recebe um e-mail confirmando sua vaga. Quando o
-              lote abrir, avisamos com o link para comprar.</span>
-            </div>
-          </div>
+      <div class="duo">
+        <div>
+          <p class="eyebrow">nossa história</p>
+          <h2>Isso vem de longe.</h2>
+          <p class="lead">
+            Nos anos 1980, Antonio Vendramin cuidava de um orquidário com quase
+            dez mil vasos em Jundiaí. Levava água a cada um por microtubos,
+            quando ninguém no Brasil fazia isso.
+          </p>
+          <p class="lead">
+            O Aguatudo é o neto retomando a obsessão do avô.
+          </p>
+          <p><a href="nossa_historia.html"><strong>Conheça a história completa →</strong></a></p>
         </div>
+        <img src="foto_orquidário_3.png" alt="Orquidário de Antonio Vendramin" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
 
-  <!-- ============ 10 · IRRIGAÇÃO PROFISSIONAL (recolhível) ============ -->
+<!-- ============ 4 · CTA INTERMEDIÁRIO ============ -->
+  <section class="cta-meio">
+    <div class="wrap">
+      <p>Gostou do que viu?</p>
+      <a class="cta-btn" href="#lista">Reservar o meu</a>
+      <p class="cta-sub">Reservar não obriga a comprar · primeiras unidades a partir de 23/11</p>
+    </div>
+  </section>
+
+<!-- ============ 10 · IRRIGAÇÃO PROFISSIONAL (recolhível) ============ -->
   <section class="pro">
     <div class="wrap">
       <details id="pro-details">
@@ -496,7 +519,7 @@
 
           <div class="pro-cta">
             <p>Convencido pelos detalhes?</p>
-            <a class="cta-btn" href="#lista">Entrar na lista do primeiro lote</a>
+            <a class="cta-btn" href="#lista">Reservar o meu</a>
           </div>
         </div>
       </details>
@@ -507,12 +530,26 @@
 
 <footer>
   <img class="footer-logo" src="logo_aguatudo.png" alt="Aguatudo" />
+  <nav class="footer-links" aria-label="Links do rodapé">
+    <a href="nossa_historia.html">Nossa História</a>
+    <a href="contato.html">Contato</a>
+    <a href="manual.pdf" target="_blank" rel="noopener">Manual de uso</a>
+    <a href="manual_tecnico.pdf" target="_blank" rel="noopener">Manual para especialistas</a>
+    <a href="https://instagram.com/aguatudobrasil" target="_blank" rel="noopener">Instagram</a>
+    <a href="index-en.html">English</a>
+  </nav>
   <p>© 2026 Aguatudo · <a href="mailto:contato@aguatudo.com.br">contato@aguatudo.com.br</a></p>
   <div class="selo-area">
     <img class="selo-unicamp" src="selo_unicamp_borda.png"
          alt="Selo de empresa-filha da Unicamp" loading="lazy" decoding="async" />
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/5519995309944?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20reservar%20um%20Aguatudo." target="_blank" rel="noopener"
+   data-wa="flutuante" aria-label="Falar com o Aguatudo pelo WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3 29l6.5-2c2 1.1 4.2 1.6 6.5 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.3c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1.2 1.2-3.7-.3-.4c-1.2-1.7-1.8-3.7-1.8-5.8C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.3 16 26.3zm6-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span>Fale conosco</span>
+</a>
 
 <!-- VIDEO MODAL -->
 <div class="video-modal" id="videoModal" aria-hidden="true">
@@ -531,7 +568,7 @@
   const closeBtn = document.getElementById('closeVideoBtn');
   const frame    = modal.querySelector('.video-modal__frame');
 
-  const VIDEO_ID = 'ywk-FJG8uJc';
+  const VIDEO_ID = 'JrZ9-Iymf1I';
   const EMBED = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
 
   function openModal() {
@@ -610,6 +647,11 @@
     }
   });
 })();
+
+/* Analytics: cliques no WhatsApp (flutuante e dúvida de configuração) */
+document.querySelectorAll('[data-wa]').forEach(a => a.addEventListener('click', () => {
+  if (typeof gtag === 'function') gtag('event', 'whatsapp_click', { origem: a.dataset.wa });
+}));
 
 /* Analytics: quem abre a seção profissional */
 (function(){
