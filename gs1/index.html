@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aguatudo — reserve o seu · Prêmio GS1 2026</title>
+  <meta name="description" content="Aguatudo, 1º lugar no Prêmio Automação GS1 Brasil 2026. A rega que obedece ao tempo, não ao relógio. Reserve o seu: primeiro lote de 90 unidades, entrega em dezembro." />
+  <link rel="canonical" href="https://www.aguatudo.com.br/gs1/" />
+  <meta property="og:title" content="Aguatudo — 1º lugar no Prêmio Automação GS1 Brasil 2026" />
+  <meta property="og:description" content="A rega que obedece ao tempo, não ao relógio. Reserve o seu." />
+  <meta property="og:image" content="https://www.aguatudo.com.br/og-image.jpg" />
+  <meta name="theme-color" content="#00adc3" />
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27Q59PLKST"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-27Q59PLKST');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../landing.css" />
+</head>
+<body>
+<main class="evento">
+  <img class="evento-logo" src="../logo_aguatudo.png" alt="Aguatudo" />
+  <p class="selo-premio">🏆 1º lugar · Prêmio Automação GS1 Brasil 2026 · Empreendedorismo</p>
+  <h1>Aguatudo: a rega que obedece ao tempo, não ao relógio.</h1>
+
+  <div class="form-card" id="lista">
+        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Reserva — 1º lote Aguatudo" />
+          <input type="hidden" id="origem" name="origem" value="gs1" />
+          <input type="hidden" id="whatsapp_e164" name="whatsapp_e164" value="" />
+          <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
+               silenciosamente qualquer envio em que este campo venha preenchido. -->
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Não preencha este campo</label>
+            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" inputmode="numeric" autocomplete="tel"
+                 placeholder="(DD) 9XXXX-XXXX" required />
+
+          <label for="nome">Primeiro nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="given-name" required />
+
+          <fieldset class="perfil">
+            <legend>Para onde é?</legend>
+            <label><input type="radio" name="perfil" value="Jardim ou horta em casa" /><span>Jardim ou horta em casa</span></label>
+            <label><input type="radio" name="perfil" value="Sítio ou casa de campo" /><span>Sítio ou casa de campo</span></label>
+            <label><input type="radio" name="perfil" value="Jardineiro ou revendedor" /><span>Sou jardineiro ou revendedor</span></label>
+          </fieldset>
+
+          <label class="aceite" for="aceite">
+            <input type="checkbox" id="aceite" name="aceite_whatsapp" value="sim" required />
+            <span>Aceito receber mensagens do Aguatudo pelo WhatsApp sobre o lançamento e o primeiro lote. Para sair, é só responder SAIR.</span>
+          </label>
+
+          <button type="submit" class="cta-btn">Reservar o meu</button>
+          <p id="form-status" role="status"></p>
+        </form>
+
+        <!-- Estado final -->
+        <div id="passo3" hidden>
+          <div class="p2-ok">
+            <span class="p2-check">✓</span>
+            <div>
+              <strong>Reserva feita!</strong>
+              <span>Quando o lote abrir, você recebe o link de compra no Mercado Livre antes de todo mundo.</span>
+            </div>
+          </div>
+          <a class="cta-btn wa-confirma" data-wa="confirmar_reserva" target="_blank" rel="noopener"
+             href="https://wa.me/5519995309944?text=Oi!%20Acabei%20de%20reservar%20meu%20Aguatudo.">Confirmar pelo WhatsApp</a>
+          <p class="wa-confirma-nota">Mande o “oi” agora: assim o aviso do lote chega certinho.</p>
+        </div>
+
+  </div>
+
+  <p class="evento-nota">Primeiro lote: 90 unidades, entrega em dezembro. Reservar não obriga a comprar.</p>
+  <a class="evento-mais" href="../?origem=gs1">Conhecer o Aguatudo →</a>
+</main>
+
+<script src="../reserva.js" defer></script>
+<script>
+document.querySelectorAll('[data-wa]').forEach(a => a.addEventListener('click', () => {
+  if (typeof gtag === 'function') gtag('event', 'whatsapp_click', { origem: a.dataset.wa });
+}));
+</script>
+</body>
+</html>

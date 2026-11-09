@@ -805,3 +805,75 @@ footer p { margin: 0; }
 }
 /* não cobrir o formulário nem o rodapé no fim da página */
 footer { padding-bottom: 84px; }
+
+/* ============================================================
+   Formulário de reserva v3 — nov/2026 (WhatsApp + perfil + LGPD)
+   ============================================================ */
+.form-card .perfil { border: 0; padding: 0; margin: 18px 0 0; text-align: left; }
+.form-card .perfil legend { font-weight: 700; font-size: .9rem; margin-bottom: 8px; padding: 0; }
+.form-card .perfil label { display: inline-block; margin: 0 6px 8px 0; font-weight: 600; font-size: .9rem; cursor: pointer; }
+.form-card .perfil input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.form-card .perfil span {
+  display: inline-block; padding: 9px 14px; border-radius: 999px;
+  border: 1.5px solid rgba(18,55,66,.22); background: #fff; color: var(--ink);
+  transition: background .12s, border-color .12s;
+}
+.form-card .perfil input:checked + span { background: var(--teal); border-color: var(--teal); color: #fff; }
+.form-card .perfil input:focus-visible + span { outline: 3px solid rgba(0,194,168,.45); }
+.form-card .aceite {
+  display: flex; align-items: flex-start; gap: 10px; margin: 10px 0 0; padding: 12px 14px;
+  background: #eefafc; border-radius: 10px; text-align: left; cursor: pointer;
+  font-weight: 500; font-size: .86rem; line-height: 1.45; color: var(--ink);
+}
+.form-card .aceite input { width: 20px; height: 20px; flex: none; margin: 1px 0 0; padding: 0; accent-color: var(--teal); }
+.form-card input::placeholder { color: #8aa3ab; }
+.wa-confirma { display: block; width: 100%; text-align: center; background: #25d366 !important; color: #fff !important; font-size: 1.1rem; }
+.wa-confirma-nota { margin: 10px 0 0; font-size: .88rem; color: var(--ink-suave); text-align: center; }
+@media (max-width: 520px) { .lista .form-card { padding: 22px 18px; } }
+
+/* ---------- Página do evento (/gs1) ---------- */
+.evento { min-height: 100vh; min-height: 100svh; padding: 18px 16px 28px; text-align: center; }
+.evento .evento-logo { height: 34px; width: auto; display: block; margin: 0 auto; filter: brightness(0) invert(1); }
+.evento .selo-premio { margin-top: 12px; }
+.evento h1 {
+  font-family: "Sora", sans-serif; font-size: clamp(1.25rem, 5.4vw, 1.7rem); line-height: 1.2;
+  margin: 12px auto 0; max-width: 30rem; color: var(--ink);
+}
+.evento .form-card {
+  background: var(--cartao); border-radius: var(--raio); box-shadow: var(--sombra);
+  padding: 18px 18px 14px; max-width: 480px; margin: 14px auto 0; text-align: left;
+}
+.evento .form-card label { display: block; font-weight: 700; font-size: .9rem; margin: 12px 0 5px; }
+.evento .form-card label:first-of-type { margin-top: 0; }
+.evento .form-card input[type=tel], .evento .form-card input[type=text] {
+  width: 100%; padding: 12px 14px; font-size: 1rem; font-family: inherit; color: var(--ink);
+  border: 1.5px solid rgba(18,55,66,.22); border-radius: 10px;
+}
+.evento .form-card input:focus-visible { outline: 3px solid rgba(0,194,168,.45); border-color: var(--teal); }
+.evento .form-card .cta-btn { width: 100%; margin-top: 14px; }
+.evento .form-card .perfil { margin-top: 12px; }
+.evento .form-card .perfil label, .evento .form-card .aceite { margin-top: 0; font-weight: 600; }
+.evento .form-card .aceite { margin-top: 4px; font-weight: 500; }
+.evento .evento-mais { display: inline-block; margin-top: 18px; font-weight: 700; color: var(--ink); }
+.evento .evento-nota { font-size: .85rem; color: var(--ink-suave); margin: 8px 0 0; }
+.evento .form-card .aceite { display: flex; padding: 10px 12px; font-size: .82rem; }
+.evento .selo-premio { font-size: .74rem; padding: 5px 12px; margin-top: 10px; }
+.evento h1 { margin-top: 10px; }
+.evento .form-card label { margin-top: 10px; }
+.evento .form-card input[type=tel], .evento .form-card input[type=text] { padding: 10px 12px; }
+.form-card .perfil span { padding: 7px 12px; font-size: .84rem; }
+.form-card .perfil label { margin: 0 4px 6px 0; }
+.evento { padding-top: 12px; }
+.evento .evento-logo { height: 28px; }
+.evento .form-card { padding-top: 14px; margin-top: 12px; }
+.lista .form-card { text-align: left; }
+
+/* Faixa temporária do evento GS1 */
+.faixa-evento {
+  display: block; text-align: center; padding: 9px 16px;
+  background: #fff6e6; color: #7a5312; border-bottom: 1px solid #e8c378;
+  font-size: .92rem; font-weight: 600; text-decoration: none; line-height: 1.35;
+}
+.faixa-evento[hidden] { display: none; }
+.faixa-evento strong { color: #123742; text-decoration: underline; text-underline-offset: 3px; }
+.faixa-evento:hover strong, .faixa-evento:focus-visible strong { color: var(--teal-escuro); }

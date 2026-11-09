@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aguatudo — O irrigador que sente a chuva no seu quintal</title>
-  <meta name="description" content="Grave a rega com um botão. Ele sente a chuva no seu quintal e economiza a água que você pagaria. Sem app, sem nuvem. A partir de R$ 450, primeiras unidades a partir de 23 de novembro de 2026." />
+  <meta name="description" content="Grave a rega com um botão. Ele sente a chuva no seu quintal e economiza a água que você pagaria. Sem app, sem nuvem. A partir de R$ 450. Primeiro lote de 90 unidades, com entrega em dezembro." />
 
   <link rel="canonical" href="https://www.aguatudo.com.br/" />
 
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aguatudo" />
   <meta property="og:title" content="Aguatudo — o irrigador que sente a chuva no seu quintal" />
-  <meta property="og:description" content="Grave a rega com um botão. Ele repete todo dia e poupa a água quando chove. Sem app, sem nuvem. Primeiras unidades a partir de 23/11 — reserve o seu." />
+  <meta property="og:description" content="Grave a rega com um botão. Ele repete todo dia e poupa a água quando chove. Sem app, sem nuvem. Primeiro lote em dezembro — reserve o seu." />
   <meta property="og:url" content="https://www.aguatudo.com.br/" />
   <meta property="og:image" content="https://www.aguatudo.com.br/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -42,7 +42,6 @@
       "highPrice": "500",
       "offerCount": "2",
       "availability": "https://schema.org/PreOrder",
-      "availabilityStarts": "2026-11-23",
       "url": "https://www.aguatudo.com.br/#lista"
     }
   }
@@ -66,6 +65,9 @@
 </head>
 
 <body>
+<!-- Faixa do evento GS1: quem chega pelo QR do cartão (página inicial) entra como origem=gs1 ao tocar.
+     Some sozinha depois de FIM_EVENTO_GS1 (script no fim da página). -->
+<a class="faixa-evento" id="faixa-gs1" href="gs1/" hidden>🏆 Veio do Prêmio GS1? <strong>Reserve aqui →</strong></a>
 <header>
   <nav>
     <ul>
@@ -113,7 +115,7 @@
         Sem app, sem nuvem, sem conta. Só uma torneira e uma tomada.
       </p>
       <a class="cta-btn" href="#lista" id="cta-hero">Quero reservar o meu</a>
-      <p class="cta-sub"><strong>A partir de R$ 450</strong> · primeiras 100 unidades a partir de 23/11</p>
+      <p class="cta-sub"><strong>A partir de R$ 450</strong> · primeiro lote: 90 unidades · entrega em dezembro</p>
       <p class="selo-premio">🏆 1º lugar · Prêmio Automação GS1 Brasil 2026 · Empreendedorismo</p>
 
       <ul class="hero-bullets">
@@ -291,15 +293,17 @@
   <section class="lista" id="lista">
     <div class="wrap" style="text-align:center">
       <p class="eyebrow">reserve o seu</p>
-      <h2>Primeiras 100 unidades a partir de 23 de novembro.<br>Quem reserva antes, compra antes.</h2>
+      <h2>Primeiro lote: 90 unidades, com entrega em dezembro.<br>Quem reserva antes, compra antes.</h2>
       <p class="lead" style="margin:0 auto">
-        A venda é pelo Mercado Livre. Quem está na lista recebe o link de compra
-        primeiro, por ordem de chegada. <strong>Reservar não obriga a comprar.</strong>
+        O lançamento é agora em novembro, com venda pelo Mercado Livre. Quem está na
+        lista recebe o link de compra primeiro, por ordem de chegada. <strong>Reservar não obriga a comprar.</strong>
       </p>
 
       <div class="form-card">
-        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST">
-          <input type="hidden" name="_subject" value="Lista de espera — 1º lote Aguatudo" />
+        <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Reserva — 1º lote Aguatudo" />
+          <input type="hidden" id="origem" name="origem" value="site" />
+          <input type="hidden" id="whatsapp_e164" name="whatsapp_e164" value="" />
           <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
                silenciosamente qualquer envio em que este campo venha preenchido. -->
           <div class="hp" aria-hidden="true">
@@ -307,25 +311,27 @@
             <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
           </div>
 
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" autocomplete="name" required />
-
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" autocomplete="email" />
-
           <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" />
-          <p class="campo-nota">É por aqui que avisamos quando o lote abrir.</p>
+          <input type="tel" id="whatsapp" name="whatsapp" inputmode="numeric" autocomplete="tel"
+                 placeholder="(DD) 9XXXX-XXXX" required />
 
-          <label class="humano" for="chk-humano">
-            <input type="checkbox" id="chk-humano" />
-            <span>Confirmo que sou uma pessoa de verdade 🌱</span>
+          <label for="nome">Primeiro nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="given-name" required />
+
+          <fieldset class="perfil">
+            <legend>Para onde é?</legend>
+            <label><input type="radio" name="perfil" value="Jardim ou horta em casa" /><span>Jardim ou horta em casa</span></label>
+            <label><input type="radio" name="perfil" value="Sítio ou casa de campo" /><span>Sítio ou casa de campo</span></label>
+            <label><input type="radio" name="perfil" value="Jardineiro ou revendedor" /><span>Sou jardineiro ou revendedor</span></label>
+          </fieldset>
+
+          <label class="aceite" for="aceite">
+            <input type="checkbox" id="aceite" name="aceite_whatsapp" value="sim" required />
+            <span>Aceito receber mensagens do Aguatudo pelo WhatsApp sobre o lançamento e o primeiro lote. Para sair, é só responder SAIR.</span>
           </label>
-          <p id="humano-erro" class="humano-erro" hidden>Marque a confirmação acima para enviar.</p>
 
           <button type="submit" class="cta-btn">Reservar o meu</button>
           <p id="form-status" role="status"></p>
-          <p class="cta-sub" id="form-nota">Sem spam. Uma confirmação agora e um aviso quando o lote abrir.</p>
         </form>
 
         <!-- Estado final -->
@@ -334,10 +340,12 @@
             <span class="p2-check">✓</span>
             <div>
               <strong>Reserva feita!</strong>
-              <span>Em breve você recebe uma mensagem confirmando. A partir de 23/11,
-              você recebe primeiro o link de compra no Mercado Livre.</span>
+              <span>Quando o lote abrir, você recebe o link de compra no Mercado Livre antes de todo mundo.</span>
             </div>
           </div>
+          <a class="cta-btn wa-confirma" data-wa="confirmar_reserva" target="_blank" rel="noopener"
+             href="https://wa.me/5519995309944?text=Oi!%20Acabei%20de%20reservar%20meu%20Aguatudo.">Confirmar pelo WhatsApp</a>
+          <p class="wa-confirma-nota">Mande o “oi” agora: assim o aviso do lote chega certinho.</p>
         </div>
       </div>
     </div>
@@ -441,7 +449,7 @@
     <div class="wrap">
       <p>Gostou do que viu?</p>
       <a class="cta-btn" href="#lista">Reservar o meu</a>
-      <p class="cta-sub">Reservar não obriga a comprar · primeiras unidades a partir de 23/11</p>
+      <p class="cta-sub">Reservar não obriga a comprar · primeiro lote: 90 unidades, entrega em dezembro</p>
     </div>
   </section>
 
@@ -580,6 +588,17 @@
 </div>
 
 <script>
+/* Faixa do evento GS1 — para tirar antes, mude a data abaixo (ou apague a faixa). */
+(function(){
+  const FIM_EVENTO_GS1 = new Date('2026-11-30T23:59:59-03:00');
+  const f = document.getElementById('faixa-gs1');
+  if (!f || new Date() > FIM_EVENTO_GS1) return;
+  f.hidden = false;
+  f.addEventListener('click', () => { if (typeof gtag === 'function') gtag('event', 'faixa_gs1_click'); });
+})();
+</script>
+<script src="reserva.js" defer></script>
+<script>
 (function () {
   const openBtn  = document.getElementById('openVideo');
   const modal    = document.getElementById('videoModal');
@@ -605,66 +624,6 @@
   closeBg.addEventListener('click', closeModal);
   closeBtn.addEventListener('click', closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-})();
-
-/* Lista de espera — tela única, um envio só */
-(function () {
-  const form   = document.getElementById('contact-form');
-  if (!form) return;
-  const status = document.getElementById('form-status');
-  const chk    = document.getElementById('chk-humano');
-  const erroHumano = document.getElementById('humano-erro');
-  const cartao = document.querySelector('.form-card');
-  const sucesso = document.getElementById('passo3');
-  const tCarga = Date.now();       // momento em que a página carregou
-  let tPrimeiroToque = null;       // momento do primeiro contato com o formulário
-  form.addEventListener('input', () => {
-    if (tPrimeiroToque === null) tPrimeiroToque = Date.now();
-  }, { once: false });
-  let enviando = false;
-
-  function aviso(txt) { status.textContent = txt; status.style.color = '#f06a00'; }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (enviando) return;
-
-    const nome     = (document.getElementById('nome')?.value || '').trim();
-    const email    = (document.getElementById('email')?.value || '').trim();
-    const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
-
-    if (!nome) { aviso('Por favor, informe seu nome.'); return; }
-    if (!email && !whatsapp) { aviso('Preencha pelo menos E-mail ou WhatsApp.'); return; }
-
-    if (chk && !chk.checked) { erroHumano.hidden = false; chk.focus(); return; }
-    if (erroHumano) erroHumano.hidden = true;
-
-    // Trava de tempo: robôs preenchem e enviam quase instantaneamente.
-    const agora = Date.now();
-    if (agora - tCarga < 3000 || tPrimeiroToque === null || agora - tPrimeiroToque < 1500) {
-      aviso('Aguarde um instante e tente novamente.'); return;
-    }
-
-    enviando = true;
-    status.textContent = 'Enviando…'; status.style.color = '#3f6270';
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_label: 'waitlist' });
-        form.hidden = true;
-        const nota = document.getElementById('form-nota');
-        if (nota) nota.hidden = true;
-        sucesso.hidden = false;
-        sucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        aviso('Houve um problema ao enviar. Tente novamente.'); enviando = false;
-      }
-    } catch {
-      aviso('Erro de conexão. Verifique sua internet.'); enviando = false;
-    }
-  });
 })();
 
 /* Analytics: cliques no WhatsApp (flutuante e dúvida de configuração) */
