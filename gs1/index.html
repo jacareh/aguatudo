@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aguatudo — reserve o seu · Prêmio GS1 2026</title>
-  <meta name="description" content="Aguatudo, 1º lugar no Prêmio Automação GS1 Brasil 2026. A rega que obedece ao tempo, não ao relógio. Reserve o seu: primeiro lote de 90 unidades, entrega em dezembro." />
+  <title>Aguatudo — peça o seu · Prêmio GS1 2026</title>
+  <meta name="description" content="Aguatudo, 1º lugar no Prêmio Automação GS1 Brasil 2026. A rega que obedece ao tempo, não ao relógio. Conte como são suas plantas e receba a configuração certa." />
   <link rel="canonical" href="https://www.aguatudo.com.br/gs1/" />
   <meta property="og:title" content="Aguatudo — 1º lugar no Prêmio Automação GS1 Brasil 2026" />
-  <meta property="og:description" content="A rega que obedece ao tempo, não ao relógio. Reserve o seu." />
+  <meta property="og:description" content="A rega que obedece ao tempo, não ao relógio. Peça o seu." />
   <meta property="og:image" content="https://www.aguatudo.com.br/og-image.jpg" />
   <meta name="theme-color" content="#00adc3" />
 
@@ -34,7 +34,7 @@
 
   <div class="form-card" id="lista">
         <form id="contact-form" action="https://formspree.io/f/xgvydwdb" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Reserva — 1º lote Aguatudo" />
+          <input type="hidden" name="_subject" value="Pedido — Aguatudo" />
           <input type="hidden" id="origem" name="origem" value="gs1" />
           <input type="hidden" id="whatsapp_e164" name="whatsapp_e164" value="" />
           <!-- Armadilha anti-robô: invisível para pessoas. O Formspree descarta
@@ -58,12 +58,16 @@
             <label><input type="radio" name="perfil" value="Jardineiro ou revendedor" /><span>Sou jardineiro ou revendedor</span></label>
           </fieldset>
 
+          <label for="plantas">Conte sobre suas plantas <small>(opcional)</small></label>
+          <textarea id="plantas" name="plantas" rows="2" maxlength="500"
+                    placeholder="Ex.: 12 vasos na varanda, torneira a 3 metros"></textarea>
+
           <label class="aceite" for="aceite">
             <input type="checkbox" id="aceite" name="aceite_whatsapp" value="sim" required />
-            <span>Aceito receber mensagens do Aguatudo pelo WhatsApp sobre o lançamento e o primeiro lote. Para sair, é só responder SAIR.</span>
+            <span>Aceito receber mensagens do Aguatudo pelo WhatsApp sobre o meu pedido e a instalação. Para sair, é só responder SAIR.</span>
           </label>
 
-          <button type="submit" class="cta-btn">Reservar o meu</button>
+          <button type="submit" class="cta-btn">Pedir o meu</button>
           <p id="form-status" role="status"></p>
         </form>
 
@@ -72,18 +76,18 @@
           <div class="p2-ok">
             <span class="p2-check">✓</span>
             <div>
-              <strong>Reserva feita!</strong>
-              <span>Quando o lote abrir, você recebe o link de compra no Mercado Livre antes de todo mundo.</span>
+              <strong>Pedido recebido!</strong>
+              <span>Vamos te chamar no WhatsApp para entender suas plantas, indicar os acessórios e enviar o link de compra.</span>
             </div>
           </div>
           <a class="cta-btn wa-confirma" data-wa="confirmar_reserva" target="_blank" rel="noopener"
-             href="https://wa.me/5519995309944?text=Oi!%20Acabei%20de%20reservar%20meu%20Aguatudo.">Confirmar pelo WhatsApp</a>
-          <p class="wa-confirma-nota">Mande o “oi” agora: assim o aviso do lote chega certinho.</p>
+             href="https://wa.me/5519995309944?text=Oi!%20Acabei%20de%20pedir%20meu%20Aguatudo.">Confirmar pelo WhatsApp</a>
+          <p class="wa-confirma-nota">Mande o “oi” agora e conte como são suas plantas. Uma foto ajuda.</p>
         </div>
 
   </div>
 
-  <p class="evento-nota">Primeiro lote: 90 unidades, entrega em dezembro. Reservar não obriga a comprar.</p>
+  <p class="evento-nota">A gente indica os acessórios certos e envia o link de compra. Pedir não obriga a comprar.</p>
   <a class="evento-mais" href="../?origem=gs1">Conhecer o Aguatudo →</a>
 </main>
 

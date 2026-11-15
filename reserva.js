@@ -1,4 +1,4 @@
-/* Aguatudo — formulário de reserva (página inicial e /gs1)
+/* Aguatudo — formulário de pedido (página inicial e /gs1)
    WhatsApp + primeiro nome + perfil + consentimento. Um envio só, pelo Formspree.
    Proteção contra robôs sem atrito: campo-armadilha oculto (_gotcha) e trava de tempo. */
 (function () {

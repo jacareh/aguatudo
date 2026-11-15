@@ -877,3 +877,29 @@ footer { padding-bottom: 84px; }
 .faixa-evento[hidden] { display: none; }
 .faixa-evento strong { color: #123742; text-decoration: underline; text-underline-offset: 3px; }
 .faixa-evento:hover strong, .faixa-evento:focus-visible strong { color: var(--teal-escuro); }
+
+/* ============================================================
+   Pedido com orientação — nov/2026
+   ============================================================ */
+.form-card textarea {
+  width: 100%; padding: 12px 14px; font: inherit; font-size: 1rem; color: var(--ink);
+  border: 1.5px solid rgba(18,55,66,.22); border-radius: 10px; resize: vertical; min-height: 64px; background: #fff;
+}
+.form-card textarea:focus-visible { outline: 3px solid rgba(0,194,168,.45); border-color: var(--teal); }
+.form-card textarea::placeholder { color: #8aa3ab; }
+.form-card label small { font-weight: 500; color: var(--ink-suave); }
+.form-card label[for=plantas] { display: block; font-weight: 700; font-size: .9rem; margin: 10px 0 5px; text-align: left; }
+.passos-pedido {
+  list-style: none; counter-reset: passo; padding: 0; margin: 22px auto 0; max-width: 560px;
+  display: grid; gap: 10px; text-align: left;
+}
+.passos-pedido li {
+  counter-increment: passo; position: relative; padding: 10px 14px 10px 48px;
+  background: rgba(255,255,255,.72); border-radius: 12px; font-size: .97rem; line-height: 1.4;
+}
+.passos-pedido li::before {
+  content: counter(passo); position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; border-radius: 50%; background: var(--teal); color: #fff;
+  font-weight: 700; font-size: .9rem; display: grid; place-items: center;
+}
+.cta-meio .verde { font-size: .98rem; font-weight: 600; margin-bottom: 14px; }
