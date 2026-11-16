@@ -22,7 +22,7 @@
     const vasos = m.agro ? 0 : Number(val('m_kit') || 0);
     const partes = [`${qtd}× ${m.nome}`, m.agro ? 'bivolt' : val('m_volt')];
     if (vasos) partes.push(`kit de gotejamento para ${vasos} vasos` + (qtd > 1 ? ' (cada)' : ''));
-    if (m.agro) partes.push('contator a definir');
+    if (m.agro) partes.push('contator conforme a bomba (a definir)');
     const total = qtd * (m.preco + KIT[vasos]);
     const texto = partes.join(', ') + ` — estimado ${brl(total)}`;
     $('m-qtd').textContent = qtd;
