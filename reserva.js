@@ -77,6 +77,10 @@
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { event_label: 'waitlist', origem: origemFinal, perfil: perfil });
         }
+        const ped = (document.getElementById('pedido') || {}).value;
+        const wa = sucesso.querySelector('.wa-confirma');
+        if (ped && wa) wa.href = 'https://wa.me/5519995309944?text=' +
+          encodeURIComponent('Oi! Acabei de pedir meu Aguatudo. Pedido: ' + ped);
         form.hidden = true;
         sucesso.hidden = false;
         sucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });

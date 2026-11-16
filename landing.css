@@ -903,3 +903,65 @@ footer { padding-bottom: 84px; }
   font-weight: 700; font-size: .9rem; display: grid; place-items: center;
 }
 .cta-meio .verde { font-size: .98rem; font-weight: 600; margin-bottom: 14px; }
+
+/* ============================================================
+   Quatro modelos + monte o seu pedido — nov/2026
+   ============================================================ */
+.btn-escolher {
+  margin-top: 16px; width: 100%; padding: 11px 16px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--teal); background: #fff; color: var(--teal-escuro, #0b7f90);
+  font: inherit; font-weight: 700;
+}
+.btn-escolher:hover, .btn-escolher:focus-visible { background: var(--teal); color: #fff; }
+.opcao.destaque .btn-escolher { background: var(--teal); color: #fff; }
+.agro-link { margin: 8px 0 0; font-size: .92rem; }
+.agro-link a { color: var(--ink); font-weight: 700; }
+.kit-faixa {
+  display: flex; gap: 18px; align-items: center; margin-top: 22px; padding: 16px;
+  background: var(--cartao); border-radius: var(--raio); border: 1px solid rgba(18,55,66,.12);
+}
+.kit-faixa img { width: 120px; height: 90px; object-fit: cover; border-radius: 10px; flex: none; }
+.kit-faixa h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.kit-faixa p { margin: 0; font-size: .95rem; color: var(--ink-suave); }
+.agro {
+  margin-top: 44px; padding: 30px 22px; border-radius: var(--raio);
+  background: #123742; color: #e9f6f8; scroll-margin-top: 70px;
+}
+.agro .eyebrow { color: #7fe0d2; }
+.agro h2 { color: #fff; }
+.agro .lead { color: #cfe6ea; }
+.agro .opcao { color: var(--ink); }
+.montar {
+  margin-top: 44px; padding: 24px 22px; background: var(--cartao); border-radius: var(--raio);
+  border: 2px solid var(--teal); box-shadow: var(--sombra); scroll-margin-top: 70px;
+}
+.montar h3 { margin: 0 0 6px; font-size: 1.3rem; }
+.chips { border: 0; padding: 0; margin: 16px 0 0; }
+.chips legend { font-weight: 700; font-size: .92rem; margin-bottom: 8px; padding: 0; }
+.chips label { display: inline-block; margin: 0 6px 8px 0; cursor: pointer; }
+.chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chips span {
+  display: inline-block; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: .9rem;
+  border: 1.5px solid rgba(18,55,66,.22); background: #fff; color: var(--ink);
+}
+.chips input:checked + span { background: var(--teal); border-color: var(--teal); color: #fff; }
+.chips input:focus-visible + span { outline: 3px solid rgba(0,194,168,.45); }
+.chips[hidden] { display: none; }
+.montar-nota { margin: 12px 0 0; font-size: .88rem; color: var(--ink-suave); }
+.m-qtd { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-weight: 700; font-size: .92rem; }
+.m-qtd button {
+  width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(18,55,66,.22);
+  background: #fff; font-size: 1.2rem; font-weight: 700; color: var(--ink); cursor: pointer;
+}
+.m-qtd output { min-width: 24px; text-align: center; font-size: 1.1rem; }
+.m-resumo { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(18,55,66,.12); }
+.m-resumo p { margin: 0 0 6px; }
+.m-total { font-size: 1.1rem; }
+.m-total strong { font-family: "Sora", sans-serif; font-size: 1.5rem; color: var(--teal); }
+.m-resumo .cta-btn { margin-top: 10px; }
+#pedido-resumo {
+  margin-bottom: 14px; padding: 10px 12px; background: #eefafc; border-radius: 10px;
+  font-size: .9rem; line-height: 1.4; text-align: left;
+}
+#pedido-resumo[hidden] { display: none; }
+@media (max-width: 520px) { .kit-faixa { flex-direction: column; align-items: flex-start; } .kit-faixa img { width: 100%; height: 140px; } }
